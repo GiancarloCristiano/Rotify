@@ -24,6 +24,9 @@
        <div class="form-group">
         <input type="textarea" name="ingredientes"  class="form-control" placeholder="Ingrese ingredientes">
     </div>
+        <div class="form-group">
+        <input type="file" name="imagen" class="form-control" placeholder="Ingrese una imagen" id="imageToUpload">
+    </div>
     <button type="submit" class="btn btn-primary">AGREGAR</button>
 </form>
 

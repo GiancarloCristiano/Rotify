@@ -2,16 +2,13 @@
 <div>
   <h1 class="text-center">{$primertitulo}</h1>
 </div>
-{if isset($smarty.session.USER_NAME)} 
-<a class="btn btn-warning" href="comida/insertar">AGREGAR COMIDA</a>
-{/if}
 
-<table class="table">
-  <thead class="thead-dark">
+<table class="table table-striped">
+  <thead class="thead bg-warning text-white">
     <tr>
-      <th scope="col">Comida</th>
-      {if isset($smarty.session.USER_NAME)} 
-      <th scope="col">Acciones</th>
+      <th scope="col">PLATO</th>
+      {if isset($smarty.session.USER_NAME)}
+      <th scope="col">ACCIONES</th>
       {/if}
     </tr>
   </thead>
@@ -20,14 +17,21 @@
     <tr>
       <td scope="row">{$comida->nombre}</td>
       <td>
-      {if isset($smarty.session.USER_NAME)} 
-        <a class="btn btn-warning" href="comida/editar/{$comida->id_comida}">EDITAR</a>
+        {if isset($smarty.session.USER_NAME)}
+        <a class="btn btn-warning text-white" href="comida/editar/{$comida->id_comida}">EDITAR</a>
         <a class="btn btn-secondary" href="comida/borrar/{$comida->id_comida}">X</a>
-      {/if}
+        {/if}
       </td>
     </tr>
     {/foreach}
   </tbody>
 </table>
+
+{if isset($smarty.session.USER_NAME)}
+<div>
+<a class="btn btn-outline-warning" href="comida/insertar">AGREGAR COMIDA</a>
+</div>
+{/if}
+
 </body>
 {include 'templates/footer.tpl'}

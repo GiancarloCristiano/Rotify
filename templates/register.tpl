@@ -1,31 +1,31 @@
 {include 'templates/header.tpl'}
 
-    <form method="POST" class="col-md-4 offset-md-4 mt-4">
-        
-        
-        <h1>{$titulo}</h1>
+<form method="POST" class="col-md-4 offset-md-4 mt-4">
 
-        <div class="form-group">
-            <label>Usuario (email)</label>
-            <input type="text" name="username" class="form-control" placeholder="Ingrese usuario">
-        </div>
 
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" name="password" class="form-control" placeholder="Password">
-        </div>
+    <h2>{$titulo}</h2>
 
-        {if $error}
-        <div class="alert alert-danger" role="alert">
-            {$error}
-        </div>
-        {/if}
-        <button type="submit" class="btn btn-primary">Registrarse</button>
+    <div class="form-group">
+        <label>E-mail de usuario</label>
+        <input type="text" name="username" class="form-control" placeholder="ejemplo@email.com">
+    </div>
 
-       
-            
-         
-    </form>
+    <div class="form-group">
+        <label>Contraseña</label>
+        <input type="password" name="password" class="form-control" placeholder="******">
+    </div>
+
+    {if $error}
+    <div class="alert alert-danger" role="alert">
+        {$error}
+    </div>
+    {/if}
+    <button type="submit" class="btn btn-primary">Registrarse</button>
+
+
+
+
+</form>
 
 </div>
 </body>
