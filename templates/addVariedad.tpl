@@ -7,7 +7,7 @@
 <form action="" method="POST" class="col-md-4 offset-md-4 mt-4">
  
     <div class="form-group">
-      <label for="inputState">comidas</label>
+      <label for="inputState">Seleccione el plato</label>
       <select id="inputState" class="form-control" name="id_comida" >
        {foreach from=$comidas item=comida}
         <option value={$comida->id_comida}>{$comida->nombre}</option>
