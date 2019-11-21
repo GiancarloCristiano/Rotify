@@ -27,7 +27,7 @@
         <div class="form-group">
         <input type="file" name="imagen" class="form-control" placeholder="Ingrese una imagen" id="imageToUpload">
     </div>
-    <button type="submit" class="btn btn-primary">AGREGAR</button>
+    <button type="submit" class="btn btn-warning text-white">AGREGAR</button>
 </form>
 
 

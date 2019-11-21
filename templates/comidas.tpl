@@ -16,12 +16,12 @@
     {foreach from=$comidas item=comida}
     <tr>
       <td scope="row">{$comida->nombre}</td>
-      <td>
-        {if isset($smarty.session.USER_NAME)}
+      {if isset($smarty.session.USER_NAME)}
+        <td>
         <a class="btn btn-warning text-white" href="comida/editar/{$comida->id_comida}">EDITAR</a>
         <a class="btn btn-secondary" href="comida/borrar/{$comida->id_comida}">X</a>
-        {/if}
       </td>
+        {/if}
     </tr>
     {/foreach}
   </tbody>

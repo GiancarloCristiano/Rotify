@@ -42,10 +42,10 @@
       </ul>
       <ul class="navbar-nav mr-auto">
         {if isset($activeLink) && ($activeLink == "home")}
-        <li class="nav-item"> <a href='./'> <img class="bg-light" src="./img/rotify_logo_header.svg"
+        <li class="nav-item"> <a href=''> <img class="bg-light" src="img/rotify_logo_header.svg"
               style="border-radius: 100%;" /></a></li>
         {else}
-        <li class="nav-item"> <a href='./'> <img src="./img/rotify_logo_header.svg" /></a></li>
+        <li class="nav-item"> <a href=''> <img src="./img/rotify_logo_header.svg" /></a></li>
         {/if}
       </ul>
 

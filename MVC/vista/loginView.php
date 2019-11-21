@@ -27,7 +27,7 @@ class LoginView
         session_start();
         // var_dump( $_SESSION['USER_NAME']);
         // die();
-        $this->smarty->assign('usuario', $_SESSION['USER_NAME']);
+        // $this->smarty->assign('usuario', $_SESSION['USER_NAME']);
 
         $this->smarty->assign('titulo', 'Registrarse');
         $this->smarty->assign('error', $error);

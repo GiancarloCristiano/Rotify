@@ -5,7 +5,7 @@
     <div class="form-group">
         <input type="text" name="nombre" class="form-control" placeholder="Ingrese comida">
     </div>
-    <button type="submit" class="btn btn-primary">AGREGAR</button>
+    <button type="submit" class="btn btn-warning text-white">AGREGAR</button>
 </form>
 
 
