@@ -13,9 +13,9 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   {* <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet"> *}
-  <link rel="icon" type="image/png" href="./img/rotify_icon.png" />
+  <base href={BASE_URL}>
+  <link rel="icon" type="image/png" href="img/rotify_icon.png" />
   <title>Rotify</title>
-  <base href={'$BASE_URL'}>
   {* session_start(); *}
 </head>
 
@@ -23,12 +23,12 @@
 
   <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #f0f0f0;">
     <ul class="navbar-nav mr-auto">
-        <style> .Rotify {
+        {* <style> .Rotify {
         font-family: 'Pacifico', cursive;
         font-size:2em;
         }</style>
-       <li class="nav-item text-warning font-weight-bold Rotify">Rotify</li>
-      {* <li class="nav-item"> <a href="./"> <img src="./img/rotify_logo_header.svg" /></a></li> *}
+       <li class="nav-item text-warning font-weight-bold Rotify">Rotify</li> *}
+      <li class="nav-item"> <a href=""> <img src="img/rotify_logo_header.svg" /></a></li>
     </ul>
     <ul class="navbar-nav my-2 my-lg-2">
       {if isset($smarty.session.USER_NAME)}

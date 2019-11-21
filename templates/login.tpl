@@ -1,6 +1,6 @@
 {include 'templates/header.tpl'}
 
-<form method="POST" class="col-md-4 offset-md-4 mt-4">
+<form action="login" method="POST" class="col-md-4 offset-md-4 mt-4">
   <h2>{$titulo}</h2>
 
   <div class="form-group">

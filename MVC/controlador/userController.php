@@ -38,8 +38,7 @@ class LoginController
         $password = $_POST['password'];
         $user = $this->userModel->getByUsername($username);
         //$hash = password_hash($password, md5);
-
-
+    
         // encontró un user con el username que mandó, y tiene la misma contraseña
         if (!empty($user) && password_verify($password, $user->contraseña)) {
             $this->authHelper->login($user);
@@ -49,8 +48,6 @@ class LoginController
 
             header('Location:' . HOME);
         } else {
-            echo $password;
-            echo $user->nombre;
             $this->loginView->showLogin("Login incorrecto");
         }
     }
