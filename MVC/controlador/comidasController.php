@@ -24,14 +24,14 @@ class ComidasControlador {
 
 
     public function showAddComida() {
-        $titulo = "Agregar Comida";
+        $titulo = "AGREGAR COMIDA";
        $this->comidasView->AddComida($titulo);
     }
 
     public function showEditarComida($params = null){
         // $id_variedad = $_GET ["id_variedad"];
          $id_comida = $params[':ID_COMIDA']; 
-         $titulo = "Editar Comida";
+         $titulo = "EDITAR COMIDA";
          $comida = $this->comidasModel->getComida($id_comida);
          $this->comidasView->editarComida($comida, $titulo);
      }
@@ -46,8 +46,7 @@ class ComidasControlador {
        //echo $comidas[1]->nombre;
        //llamar a la  instancia de la vista y llamar a una metodo mostrar y pasarle como parametro la variable comidas que es un arreglo,
        //la funcion mostrar despues de va a conectar con smarty para mostrar todas las comidas en un html 
-       $titulo='CATEGORIA COMIDAS';
-       
+       $titulo='COMIDAS';
        $this->comidasView->mostrarComidas($comidas,$titulo);
     }	
 

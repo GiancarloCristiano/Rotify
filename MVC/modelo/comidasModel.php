@@ -1,14 +1,8 @@
-
-
 <?php
 
-
 class ComidasModel {
-
-    
     private $db;
-    
-    
+     
     public function __construct() {
        $this->db= $this->connect(); //abre conexión
     }
@@ -62,4 +56,5 @@ class ComidasModel {
         $sentencia->execute(array($id_comida));
     }
 }
+
 ?>

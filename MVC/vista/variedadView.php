@@ -3,8 +3,8 @@
         class VariedadView {
             
             public function mostrarVariedad($variedades,$titulo){
-                $smarty = new Smarty();
                 session_start();
+                $smarty = new Smarty();
                 if(empty ($_SESSION['USER_NAME'])){
                     $smarty->assign('usuario', null );
                 }else{
@@ -48,6 +48,20 @@
     
         }
  
+        public function mostrarDetalle($variedad){
+            session_start();
+            $smarty = new Smarty();
+            if(empty ($_SESSION['USER_NAME'])){
+                $smarty->assign('usuario', null );
+            }else{
+            $smarty->assign('usuario', $_SESSION['USER_NAME'] );
+            } 
+            $smarty->assign('variedad',$variedad);
+            $smarty->assign('BASE_URL',BASE_URL);
+            $smarty->display('../templates/detalleVariedad.tpl');
+        }	
+
+
   
     }
 ?>

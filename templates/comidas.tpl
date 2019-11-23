@@ -1,5 +1,5 @@
 {include 'templates/header.tpl'}
-<div>
+<div class="container">
   <h1 class="text-center">{$primertitulo}</h1>
 </div>
 
@@ -28,8 +28,8 @@
 </table>
 
 {if isset($smarty.session.USER_NAME)}
-<div>
-<a class="btn btn-outline-warning" href="comida/insertar">AGREGAR COMIDA</a>
+<div class="text-center">
+<a class="btn btn-outline-warning btn-lg" href="comida/insertar">AGREGAR COMIDA</a>
 </div>
 {/if}
 

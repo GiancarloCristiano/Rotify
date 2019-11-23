@@ -1,57 +1,49 @@
 {include 'templates/header.tpl'}
 
+<div class="container">
+  <h1 class="text-center">
+    {$segundotitulo}
+  </h1>
+</div>
 
 
-  <!-- Page Content -->
-  <div class="container">
+<table class="table table-striped">
+  <thead class="thead bg-warning text-white">
+    <tr>
+      <th scope="col">PLATO</th>
+      <th scope="col">VARIEDAD</th>
+      <th scope="col">IMAGEN</th>
+      <th scope="col">INGREDIENTES</th>
+      <th scope="col"></th>
+      {if isset($smarty.session.USER_NAME)}
+      <th scope="col">ACCIONES</th>
+      {/if}
+    </tr>
+  </thead>
+  <tbody>
+    {foreach from= $variedades item=variedad}
+    <tr>
+      <td scope="row">{$variedad->nombre_comida}</td>
+      <td scope="row">{$variedad->nombre}</td>
+      <td scope="row"><img width=150px src="{$variedad->imagen}"></td>
+      <td scope="row">{$variedad->ingredientes}</td>
+      <td scope="row"><a class="btn btn-outline-warning" href="variedad/detalle/{$variedad->id_variedad}">VER MÁS</a>
+      {if isset($smarty.session.USER_NAME)}
+      <td scope="row">
+        <a class="btn btn-warning text-white" href="variedad/editar/{$variedad->id_variedad}">EDITAR</a>
+        <a class="btn btn-secondary" href="variedad/borrar/{$variedad->id_variedad}">X</a>
+      </td>
+      {/if}
+    </tr>
+    {/foreach}
+  </tbody>
+</table>
 
-    <div class="row">
-
-      <div class="col-lg-9">
-
-        <div class="card mt-4">
-          <img class="card-img-top img-fluid" src="./img/mila.png" alt="">
-          <div class="card-body">
-            <h3 class="card-title">{$comidas->comida} de {$variedad->variedad}</h3>
-            <p class="card-text">Ingredientes {$variedad->ingredientes}</p>
-            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-            4.0 stars
-          </div>
-        </div>
-        <!-- /.card -->
-
-        <div class="card card-outline-secondary my-4">
-          <div class="card-header">
-            Product Reviews
-          </div>
-          <div class="card-body">
-<!--             <p>{$comentarios->comentario}</p>
-            <small class="text-muted">Publicado por {$comentarios->nombre} el día {$comentarios->fecha}</small>
-            <hr> -->
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-            <hr>
-            <a class="btn btn-outline-warning" href="variedad/comentarios/agregar/{$variedad->id_variedad}"> Publicar un comentario</a>
-          </div>
-        </div>
-        <!-- /.card -->
-
-      </div>
-      <!-- /.col-lg-9 -->
-
-    </div>
-
-  </div>
-  <!-- /.container -->
-
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+{if isset($smarty.session.USER_NAME)}
+<div class="text-center">
+<a class="btn btn-outline-warning btn-lg" href="variedad/insertar">AGREGAR VARIEDAD</a>
+</div>
+{/if}
 
 </body>
 

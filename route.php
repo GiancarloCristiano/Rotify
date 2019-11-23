@@ -41,7 +41,7 @@ $r->addRoute("variedad/editar/:ID_VARIEDAD", "POST", "variedadControlador", "edi
 $r->addRoute("variedad/borrar/:ID_VARIEDAD", "GET", "variedadControlador", "borrarVariedad");
 $r->addRoute("variedad/insertar", "GET", "variedadControlador", "ShowAddVariedad");
 $r->addRoute("variedad/insertar", "POST", "variedadControlador", "insertarVariedad");
-
+$r->addRoute("variedad/detalle/:ID_VARIEDAD", "GET", "variedadControlador", "getVariedad");
 
 // //Ruta por defecto.
 $r->setDefaultRoute("comidasControlador", "showHome");

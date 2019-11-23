@@ -10,10 +10,10 @@
       <div class="col-lg-9">
 
         <div class="card mt-4">
-          <img class="card-img-top img-fluid" src="./img/mila.png" alt="">
+          <img class="card-img-top img-fluid" src={$variedad->imagen} alt="">
           <div class="card-body">
-            <h3 class="card-title">{$comidas->comida} de {$variedad->variedad}</h3>
-            <p class="card-text">Ingredientes {$variedad->ingredientes}</p>
+            <h3 class="card-title">de {$variedad->nombre}</h3>
+            <p class="card-text">Ingredientes: {$variedad->ingredientes}</p>
             <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
             4.0 stars
           </div>
@@ -49,8 +49,6 @@
 
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
 </body>
