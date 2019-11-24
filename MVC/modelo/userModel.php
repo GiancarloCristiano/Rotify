@@ -18,10 +18,7 @@ class UserModel {
     }
 
 
-   
-
-
-    public function signUpUser($nombre,$password) {
+       public function signUpUser($nombre,$password) {
 
         $hash = password_hash($password, PASSWORD_DEFAULT);
         $sentencia = $this->db->prepare('INSERT INTO usuario(nombre,contraseña) VALUES(?,?)');
@@ -31,8 +28,25 @@ class UserModel {
     }
 
 
-    
+    public function getUsuarios() {
+        $query = $this->db->prepare('SELECT * FROM usuario');
+        $query->execute(array());
+        $usuarios = $query->fetchAll(PDO::FETCH_OBJ);
+        return $usuarios;
+    }
 
-   
+    public function borrarUsuario($id_usuario){
+        $sentencia = $this->db->prepare('DELETE FROM usuario WHERE id_usuario=?');
+        $sentencia->execute(array($id_usuario));
+        header('Location: ' . USUARIOS );
+    }
+
+    public function toggleAdmin($id_usuario, $admin){
+        $sentencia =  $this->db->prepare("UPDATE usuario SET admin=?   WHERE id_usuario=?");
+        $sentencia->execute(array(!$admin, $id_usuario));
+        header('Location: ' . USUARIOS );
+    }
+
+
 
 }

@@ -7,6 +7,7 @@ class AuthHelper {
         session_start();
         $_SESSION['USER_ID'] = $user->id_usuario;
         $_SESSION['USER_NAME'] = $user->nombre;
+        $_SESSION['USER_ADMIN'] = $user->admin;
     }
 
     public function logout() {

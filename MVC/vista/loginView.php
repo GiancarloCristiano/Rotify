@@ -40,4 +40,19 @@ class LoginView
     //     $this->smarty->display('templates/header.tpl');
     // }
 
+
+        public function showUsuarios($usuarios){
+            session_start();
+            $smarty = new Smarty();
+            $smarty->assign('BASE_URL', BASE_URL);
+            if (empty($_SESSION['USER_NAME'])) {
+                $smarty->assign('usuario', null);
+            } else {
+                $smarty->assign('usuario', $_SESSION['USER_NAME']);
+            }
+            $smarty->assign('usuarios', $usuarios);
+            $smarty->display('../templates/usuarios.tpl');
+        }
+
+
 }

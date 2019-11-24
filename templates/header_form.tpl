@@ -33,7 +33,8 @@
     <ul class="navbar-nav my-2 my-lg-2">
       {if isset($smarty.session.USER_NAME)}
       <a class="nav-link" name="">{$usuario}</a>
-      <a class="btn btn-warning mr-sm-2 text-white" href="logout">Salir</a>
+      <a class="btn btn-outline-warning mr-sm-2" href="admin">Admin</a>
+      <a class="btn btn-warning text-white" href="logout">Salir</a>
       {else}
       <a class="btn btn-warning mr-sm-2 text-white" href="login">INICIAR SESIÓN</a>
       <a class="btn btn-outline-warning" href="register">REGISTRARSE</a>

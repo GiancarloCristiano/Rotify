@@ -21,7 +21,7 @@
 
 <body class="container">
 
-  <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #f0f0f0;">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f0f0f0;">
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -58,11 +58,14 @@
       <li class="nav-item text-warning font-weight-bold Rotify">Rotify</li> *}
       <ul class="navbar-nav my-2 my-lg-2">
         {if isset($smarty.session.USER_NAME)}
-        <a class="nav-link" name="">{$usuario}</a>
-        <a class="btn btn-warning mr-sm-2 text-white" href="logout">Salir</a>
+          <a class="nav-link" name="">{$usuario}</a>
+            {if ($smarty.session.USER_ADMIN)}
+              <a class="btn btn-outline-warning mr-sm-2" href="usuarios">Admin</a>
+            {/if}
+          <a class="btn btn-warning text-white" href="logout">Salir</a>
         {else}
-        <a class="btn btn-warning mr-sm-2 text-white" href="login">INICIAR SESIÓN</a>
-        <a class="btn btn-outline-warning" href="register">REGISTRARSE</a>
+          <a class="btn btn-warning mr-sm-2 text-white" href="login">INICIAR SESIÓN</a>
+          <a class="btn btn-outline-warning" href="register">REGISTRARSE</a>
         {/if}
       </ul>
     </div>

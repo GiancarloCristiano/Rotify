@@ -45,6 +45,8 @@ class LoginController
             session_start();
             //$_SESSION('USER_ID') = $user->id_usuario;
             $_SESSION['USER_NAME'] = $user->nombre;
+            $_SESSION['USER_ADMIN'] = $user->admin;
+
 
             header('Location:' . HOME);
         } else {
@@ -77,4 +79,23 @@ class LoginController
 
         $this->loginView->showUser($username);
     }
+
+
+    public function getUsuarios(){
+        $usuarios = $this->userModel->getUsuarios();
+        $usuarios = $this->loginView->showUsuarios($usuarios);
+    }
+
+    public function borrarUsuario($params = null) {
+        $id_usuario = $params[':ID_USUARIO'];
+        $this->userModel->borrarUsuario($id_usuario);
+    }
+
+    public function toggleAdmin($params = null){
+        $id_usuario = $params[':ID_USUARIO'];
+        $admin = $params[':ADMIN'];
+        $this->userModel->toggleAdmin($id_usuario, $admin);
+    }
+    
+
 }

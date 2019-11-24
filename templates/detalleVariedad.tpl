@@ -12,7 +12,7 @@
         <div class="card mt-4">
           <img class="card-img-top img-fluid" src={$variedad->imagen} alt="">
           <div class="card-body">
-            <h3 class="card-title">de {$variedad->nombre}</h3>
+            <h3 class="card-title">{$variedad->nombre_comida} de {$variedad->nombre}</h3>
             <p class="card-text">Ingredientes: {$variedad->ingredientes}</p>
             <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
             4.0 stars
@@ -22,7 +22,7 @@
 
         <div class="card card-outline-secondary my-4">
           <div class="card-header">
-            Product Reviews
+            Comentarios del Producto
           </div>
           <div class="card-body">
 <!--             <p>{$comentarios->comentario}</p>

@@ -20,7 +20,7 @@
         {$error}
     </div>
     {/if}
-    <button type="submit" class="btn btn-primary">Registrarse</button>
+    <button type="submit" class="btn btn-warning">Registrarse</button>
 
 
 

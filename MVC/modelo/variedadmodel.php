@@ -15,8 +15,15 @@ class variedadModel
         return $db;
     }
 
-    public function getVariedad($id_variedad){
+    /* public function getVariedad($id_variedad){
         $query = $this->db->prepare('SELECT * FROM variedad WHERE id_variedad=?'); //preparo la consulta
+        $query->execute(array($id_variedad)); //ejecuto consulta
+        $variedad = $query->fetch(PDO::FETCH_OBJ); //me da la respuesta
+        return $variedad;
+    } */
+
+    public function getVariedad($id_variedad){
+        $query = $this->db->prepare('SELECT variedad.*, comida.nombre as nombre_comida FROM variedad INNER JOIN comida ON (variedad.id_comida = comida.id_comida) WHERE variedad.id_variedad=?'); //preparo la consulta
         $query->execute(array($id_variedad)); //ejecuto consulta
         $variedad = $query->fetch(PDO::FETCH_OBJ); //me da la respuesta
         return $variedad;
@@ -62,10 +69,26 @@ class variedadModel
         return $filepath;
     }
 
+    // public function editarVariedad($id_variedad, $id_comida, $nombre, $ingredientes, $imagen = null){
+    //     if ($imagen){
+    //         $pathImg = null;
+    //         $pathImg = $this->moveFile($imagen);
+    //         echo $pathImg;
+    //     $sentencia =  $this->db->prepare('UPDATE variedad SET id_comida=? ,nombre=? ,ingredientes=?, imagen=?   WHERE id_variedad=?');
+    //     $sentencia->execute(array($id_comida, $nombre, $ingredientes, $pathImg, $id_variedad));
+    //     }else{
+    //         $sentencia =  $this->db->prepare('UPDATE variedad SET id_comida=? ,nombre=? ,ingredientes=?   WHERE id_variedad=?');
+    //         $sentencia->execute(array($id_comida, $nombre, $ingredientes, $id_variedad));
+    //     }
+    // }
+
+
     public function editarVariedad($id_variedad, $id_comida, $nombre, $ingredientes){
         $sentencia =  $this->db->prepare('UPDATE variedad SET id_comida=? ,nombre=? ,ingredientes=?   WHERE id_variedad=?');
         $sentencia->execute(array($id_comida, $nombre, $ingredientes, $id_variedad));
     }
+
+
 
     public function borrarVariedad($id_variedad){
         $sentencia = $this->db->prepare('DELETE FROM variedad WHERE id_variedad=?');

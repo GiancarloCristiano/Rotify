@@ -66,11 +66,14 @@ class variedadControlador {
         $id_comida= $_POST ['id_comida'];
         $nombre = $_POST ['nombre'];
         $ingredientes = $_POST ['ingredientes'];
-        if (!empty($nombre)){
-            $this->variedadModel->editarVariedad($id_variedad,$id_comida, $nombre, $ingredientes);
-            header('Location: ' . VARIEDAD );
+        if (
+            $_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/jpeg" ||
+            $_FILES['imagen']['type'] == "image/png"
+        ) {
+            $this->variedadModel->editarVariedad($id_variedad,$id_comida, $nombre, $ingredientes, $_FILES['imagen']);
+             header('Location: ' . VARIEDAD );
         }else{  
-            echo '<script>alert("no se ha ingresado una variedad")</script>'; 
+            echo '<script>alert("no se ha ingresado una variedad")</script>';
         }
     }
     
@@ -97,8 +100,8 @@ class variedadControlador {
         public function getVariedad($params = null){
             $id_variedad = $params[':ID_VARIEDAD'];
             $variedad = $this->variedadModel->getVariedad($id_variedad);
-            $comidas =  $this->comidasModel->getComidas();
-            $this->variedadView->mostrarDetalle($variedad, $comidas);
+            // $comidas =  $this->comidasModel->getComidas();
+            $this->variedadView->mostrarDetalle($variedad);
         }	
     
 }

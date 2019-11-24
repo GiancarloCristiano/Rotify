@@ -12,6 +12,7 @@ define("HOME", BASE_URL . '');
 define("VARIEDAD", BASE_URL . 'variedad');
 define("COMIDA", BASE_URL . 'comidas');
 define("LOGIN", BASE_URL . 'login');
+define("USUARIOS", BASE_URL . 'usuarios');
 
 
 
@@ -34,6 +35,9 @@ $r->addRoute("login", "POST", "LoginController", "verifyUser");
 $r->addRoute("login", "GET", "LoginController", "showLogin");
 $r->addRoute("register", "POST", "LoginController", "signUpUser");
 $r->addRoute("register", "GET", "LoginController", "showRegister");
+$r->addRoute("usuarios", "GET", "LoginController", "getUsuarios");
+$r->addRoute("usuarios/borrar/:ID_USUARIO", "GET", "LoginController", "borrarUsuario");
+$r->addRoute("usuarios/admin/:ID_USUARIO/:ADMIN", "GET", "LoginController", "toggleAdmin");
 //variedades
 $r->addRoute("variedad", "GET", "variedadControlador", "getVariedades");
 $r->addRoute("variedad/editar/:ID_VARIEDAD", "GET", "variedadControlador", "showEditarVariedad");
