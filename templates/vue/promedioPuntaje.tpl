@@ -6,6 +6,22 @@
 
 <div id="vue-template-puntajepromedio">
     <p><span>{{puntajePromedio}}</span>
+
+
+
+
+
+
+<!-- <div id="app">
+  <rating :rating="0"></rating>
+  <rating :rating="2"></rating>
+  <rating :rating="4.5"></rating>
+</div> -->
+
+
+
+
+    
 <!-- <star-rating v-model="rating"></star-rating> -->
 {/literal}
 <!--  <script src="https://unpkg.com/vue-star-rating/dist/star-rating.min.js"></script> -->

@@ -55,16 +55,33 @@ class LoginController
     }
 
 
-    public function signUpUser()
+  /*   public function signUpUser()
     {
         $username = $_POST['username'];
         $password = $_POST['password'];
         //controlar que el usuario no exista
         $this->userModel->signUpUser($username, $password);
         header('Location:' . LOGIN);
+    } */
+
+    public function signUpUser()
+    {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        //controlar que el usuario no exista
+        $this->userModel->signUpUser($username, $password);
+        if (!empty($user) && password_verify($password, $user->contraseña)) {
+            $this->authHelper->login($user);
+            session_start();
+            $_SESSION['USER_NAME'] = $user->nombre;
+            $_SESSION['USER_ADMIN'] = $user->admin;
+            header('Location:' . HOME);
+        } else {
+            $this->loginView->showLogin("Login incorrecto");
+        }
     }
 
-
+    
 
     public function logout()
     {

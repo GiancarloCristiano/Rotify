@@ -53,13 +53,6 @@
       </ul>
 
 
-      {* <style>
-        .Rotify {
-          font-family: 'Pacifico', cursive;
-          font-size: 2em;
-        }
-      </style>
-      <li class="nav-item text-warning font-weight-bold Rotify">Rotify</li> *}
       <ul class="navbar-nav my-2 my-lg-2">
         {if isset($smarty.session.USER_NAME)}
           <li class="nav-link disabled" name="">Bienvenid@ {$usuario}</li>

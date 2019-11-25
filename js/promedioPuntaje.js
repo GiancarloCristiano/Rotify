@@ -4,6 +4,7 @@
 // components: {
 //     StarRating
 //   }
+
 let app = new Vue({
     el: "#vue-template-puntajepromedio",
     data: {
@@ -11,6 +12,7 @@ let app = new Vue({
         puntajePromedio: Number// es como el $this->smarty->assign("tareas", $tareas);
     }
 });
+
 
 function getPuntajePromedio(){
     app.loading = true;
@@ -30,19 +32,30 @@ getPuntajePromedio ();
 
 
 
-/* function getTareas() {
-    // inicia la carga
-    app.loading = true;
 
-    fetch("api/tareas")
-    .then(response => response.json())
-    .then(tareas => {
-        app.tareas  = tareas;
-        app.loading = false;
-    })
-    .catch(error => console.log(error));
-}
-
-
-getTareas();
- */
+/* Vue.component("rating", {
+    props: {
+      rating: {
+        type: Number,
+        default: 0,
+      },
+  
+      max: {
+        type: Number,
+        default: 5,
+      },
+    },
+    template: `
+      <div class="rating">
+        <template v-for="n in max">
+          <i class="material-icons">
+            {{ rating >= n ? 'star' : (rating > n - 1) ? 'star_half' : 'star_border' }}
+          </i>
+        </template>
+      </div>
+    `
+  });
+  
+  new Vue({
+    el: '#app'
+  }); */

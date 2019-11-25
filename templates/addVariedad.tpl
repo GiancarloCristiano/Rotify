@@ -19,7 +19,7 @@
       <input type="text" name="nombre" class="form-control" placeholder="Ingrese una variedad">
     </div>
     <div class="form-group">
-      <input type="textarea" name="ingredientes"  class="form-control" placeholder="Ingrese ingredientes">
+      <textarea class="form-control" name="ingredientes" rows="3" placeholder="Ingrese ingredientes"></textarea>
     </div>
     <div class="form-group">
       <input type="file" name="imagen" class="form-control" placeholder="Ingrese una imagen" id="imageToUpload">
@@ -27,5 +27,5 @@
     <button type="submit" class="btn btn-warning text-white">AGREGAR</button>
 </form>
 
-
+</body>
 {include 'templates/footer.tpl'}
