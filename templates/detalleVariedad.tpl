@@ -14,29 +14,13 @@
           <div class="card-body">
             <h3 class="card-title">{$variedad->nombre_comida} de {$variedad->nombre}</h3>
             <p class="card-text">Ingredientes: {$variedad->ingredientes}</p>
-            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-            4.0 stars
+            {include file='vue/promedioPuntaje.tpl'}
           </div>
         </div>
         <!-- /.card -->
 
-        <div class="card card-outline-secondary my-4">
-          <div class="card-header">
-            Comentarios del Producto
-          </div>
-          <div class="card-body">
-<!--             <p>{$comentarios->comentario}</p>
-            <small class="text-muted">Publicado por {$comentarios->nombre} el día {$comentarios->fecha}</small>
-            <hr> -->
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-            <hr>
-            <a class="btn btn-outline-warning" href="variedad/comentarios/agregar/{$variedad->id_variedad}"> Publicar un comentario</a>
-          </div>
-        </div>
+        {include file='vue/comentarios.tpl'}
+        
         <!-- /.card -->
 
       </div>
@@ -49,7 +33,10 @@
 
 
   <!-- Bootstrap core JavaScript -->
+               
 
+  <script src="js/promedioPuntaje.js"></script>
+  <script src="js/comentarios.js"></script>
 
 </body>
 

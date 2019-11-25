@@ -1,4 +1,4 @@
-{include 'templates/header_form.tpl'}
+{include 'templates/header.tpl'}
 
 <form action="" method="POST" class="col-md-4 offset-md-4 mt-4" enctype= "multipart/form-data">
  

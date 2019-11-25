@@ -17,8 +17,10 @@ class JSONView {
     private function _requestStatus($code){
         $status = array(
           200 => "OK",
+          305 => "Empty response",
+          401 => "User unauthorized",
           404 => "Not found",
-          500 => "Internal Server Error"
+          500 => "Error Interno del Servidor"
         );
         return (isset($status[$code]))? $status[$code] : $status[500];
       }

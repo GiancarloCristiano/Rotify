@@ -14,6 +14,7 @@
       <th scope="col">VARIEDAD</th>
       <th scope="col">IMAGEN</th>
       <th scope="col">INGREDIENTES</th>
+      <th scope="col">PUNTAJE PROMEDIO</th>
       <th scope="col"></th>
       {if isset($smarty.session.USER_NAME)}
       <th scope="col">ACCIONES</th>
@@ -27,6 +28,9 @@
       <td scope="row">{$variedad->nombre}</td>
       <td scope="row"><img width=150px src="{$variedad->imagen}"></td>
       <td scope="row">{$variedad->ingredientes}</td>
+      <td scope="row">
+      {include file='vue/promedioPuntaje.tpl'}
+      </td>
       <td scope="row"><a class="btn btn-outline-warning" href="variedad/detalle/{$variedad->id_variedad}">VER MÁS</a>
       {if isset($smarty.session.USER_NAME)}
       <td scope="row">
@@ -45,6 +49,7 @@
 </div>
 {/if}
 
+  <script src="js/promedioPuntaje.js"></script>
 </body>
 
 {include 'templates/footer.tpl'}
