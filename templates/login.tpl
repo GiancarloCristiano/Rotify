@@ -28,11 +28,11 @@
     {$error}
   </div>
   {/if}
-  <button type="submit" class="btn btn-warning">Ingresar</button>
+  <button type="submit" class="btn btn-warning text-white">INGRESAR</button>
 </form>
 <div class="col-md-4 offset-md-4 mt-4">
   <h5>¿No tenés cuenta?</h5>
-  <a class="btn btn-outline-warning" href="register">Registrarse</a>
+  <a class="btn btn-outline-warning" href="register">REGISTRARSE</a>
 </div>
 
 {include 'templates/footer.tpl'}

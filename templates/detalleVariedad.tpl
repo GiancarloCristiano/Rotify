@@ -15,6 +15,8 @@
             <h3 class="card-title">{$variedad->nombre_comida} de {$variedad->nombre}</h3>
             <p class="card-text">Ingredientes: {$variedad->ingredientes}</p>
             {include file='vue/promedioPuntaje.tpl'}
+            es el puntaje promedio</p>
+            </div>
           </div>
         </div>
         <!-- /.card -->

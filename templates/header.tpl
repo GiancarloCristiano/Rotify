@@ -26,6 +26,15 @@
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f0f0f0;">
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        {if isset($activeLink) && ($activeLink == "home")}
+        <li class="nav-item"> <a href=''> <img class="bg-light" src="img/rotify_logo_header.svg"
+              style="border-radius: 100%;" /></a></li>
+        {else}
+        <li class="nav-item"> <a href=''> <img src="./img/rotify_logo_header.svg" /></a></li>
+        {/if}
+      </ul>
+      
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           {if isset($activeLink) && ($activeLink == "comidas")}
@@ -42,14 +51,7 @@
           {/if}
         </li>
       </ul>
-      <ul class="navbar-nav mr-auto">
-        {if isset($activeLink) && ($activeLink == "home")}
-        <li class="nav-item"> <a href=''> <img class="bg-light" src="img/rotify_logo_header.svg"
-              style="border-radius: 100%;" /></a></li>
-        {else}
-        <li class="nav-item"> <a href=''> <img src="./img/rotify_logo_header.svg" /></a></li>
-        {/if}
-      </ul>
+
 
       {* <style>
         .Rotify {
@@ -60,9 +62,9 @@
       <li class="nav-item text-warning font-weight-bold Rotify">Rotify</li> *}
       <ul class="navbar-nav my-2 my-lg-2">
         {if isset($smarty.session.USER_NAME)}
-          <a class="nav-link" name="">{$usuario}</a>
+          <li class="nav-link disabled" name="">Bienvenid@ {$usuario}</li>
             {if ($smarty.session.USER_ADMIN)}
-              <a class="btn btn-outline-warning mr-sm-2" href="usuarios">Admin</a>
+              <a class="btn btn-outline-warning mr-sm-2" href="usuarios">Administrar Usuarios</a>
             {/if}
           <a class="btn btn-warning text-white" href="logout">Salir</a>
         {else}
