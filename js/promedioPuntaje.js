@@ -17,7 +17,9 @@ let app = new Vue({
 function getPuntajePromedio(){
     app.loading = true;
     app.puntajePromedio=0;
-    fetch("http://localhost/Rotify/api/comentarios/1/puntajeprom")
+    let id = document.querySelector('#main-variedad').dataset.variedad;
+    fetch("http://localhost/Rotify/api/comentarios/" + id + "/puntajeprom")
+    //fetch("http://localhost/Rotify/api/comentarios/1/puntajeprom")
     .then(response => response.json())
     .then(data => {
         app.puntajePromedio  = Math.trunc(data.promedio);

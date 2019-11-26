@@ -24,12 +24,12 @@
   </thead>
   <tbody>
     {foreach from= $variedades item=variedad}
-    <tr>
+    <tr data-variedad="{$variedad->id_variedad}">
       <td scope="row">{$variedad->nombre_comida}</td>
       <td scope="row">{$variedad->nombre}</td>
       <td scope="row"><img width=150px src="{$variedad->imagen}"></td>
-      <td scope="row">
-      {include file='vue/promedioPuntaje.tpl'}
+      <td scope="row">{$promedioPuntaje}
+      {* {include file='vue/promedioPuntaje.tpl'} *}
       </td>
       {if isset($smarty.session.USER_NAME)}
       <td scope="row">

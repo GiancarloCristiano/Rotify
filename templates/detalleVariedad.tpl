@@ -3,7 +3,7 @@
 
 
   <!-- Page Content -->
-  <div class="container">
+  <div id="main-variedad" class="container" data-variedad="{$variedad->id_variedad}">
 
 
 

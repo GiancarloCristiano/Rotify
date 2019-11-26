@@ -30,14 +30,8 @@ class comentariosApiController {
        public function getComentarios($params = null) {
             $id_variedad = $params[':id_variedad'];
             $comentarios = $this->comentariosModel->getComentarios($id_variedad);
-            if ($comentarios){
                 $this->view->response($comentarios, 200);
-            }else if ($comentarios = null){
-                $this->view->response("Sin comentarios", 305);
-            }else{
-               $this->view->response("No encontrado", 404);
-            }
-        }
+           }
 
 
         public function borrarComentario($params = null) {

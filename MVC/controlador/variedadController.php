@@ -100,9 +100,14 @@ class variedadControlador {
         public function getVariedad($params = null){
             $id_variedad = $params[':ID_VARIEDAD'];
             $variedad = $this->variedadModel->getVariedad($id_variedad);
-            // $comidas =  $this->comidasModel->getComidas();
-            $this->variedadView->mostrarDetalle($variedad);
+            
+            $promedioPuntajes = $this->variedadModel->getPromPuntajes($id_variedad);
+            $this->variedadView->mostrarDetalle($variedad, $promedioPuntajes);
+
+            //$this->variedadView->mostrarDetalle($variedad);
         }	
+
+
     
 }
 ?>

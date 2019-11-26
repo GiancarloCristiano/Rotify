@@ -12,8 +12,7 @@
     <small class="text-muted">Publicado por {{comentario.id_usuario}} el día {{comentario.fecha}}</small>
       <hr>
     <div>
-      <a class="btn btn-secondary btn-sm"
-      href="variedad/comentarios/borrar/{$variedad->id_variedad}/{$comentario->id_comentario}">Borrar comentario</a>
+      <a class="btn btn-secondary btn-sm" v-on:click="borrar(comentario.id_comentario)">Borrar comentario</a>
     </div>
     <hr>
   </div>

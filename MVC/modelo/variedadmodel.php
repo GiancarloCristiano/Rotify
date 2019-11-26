@@ -94,4 +94,16 @@ class variedadModel
         $sentencia = $this->db->prepare('DELETE FROM variedad WHERE id_variedad=?');
         $sentencia->execute(array($id_variedad));
     }
+
+
+    public function getPromPuntajes($id_variedad){
+        $query = $this->db ->prepare('SELECT AVG(puntaje) AS promedio FROM `comentario` WHERE id_variedad=?');
+        $query->execute(array($id_variedad)); //ejecuto consulta
+        $promedioPuntajes = $query->fetch(PDO::FETCH_OBJ); //me da la respuesta
+        return $promedioPuntajes;
+    }
+
+
+
+
 }

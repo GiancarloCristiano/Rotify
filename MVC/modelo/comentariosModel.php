@@ -12,12 +12,6 @@ class ComentariosModel {
         return $db;
     }
 
-    // public function getComentaida($id_comida){
-    //     $query = $this->db->prepare( 'SELECT * FROM comida WHERE id_comida=?'); //preparo la consulta
-    //     $query->execute(array($id_comida)); //ejecuto consulta
-    //     $comida = $query->fetch(PDO::FETCH_OBJ); //me da la respuesta
-    //     return $comida;
-    // }	
     
     public function getComentarios($id_variedad){
     $query = $this->db ->prepare( 'SELECT * FROM comentario WHERE id_variedad=?'); //preparo la consulta
@@ -27,25 +21,13 @@ class ComentariosModel {
     }
 
 
-    // function mostrarComidas() {
-    //     $comidas = getComidas();
-    //     $html = "<ul>";
-    //     foreach ($comidas as $comida) {
-    //         $html .="<li> {$comida->nombre} </li>";
-    //     }
-    //     $html.="</ul>";
-    //     echo $html;
-    // }
+
 
     public function insertarComentario($id_usuario, $id_variedad, $comentario, $puntaje){
     $sentencia = $this->db->prepare('INSERT INTO comentario (id_usuario, id_variedad, comentario, puntaje, fecha) VALUES(?,?,?,?,CURRENT_TIMESTAMP)');
     $sentencia->execute(array($id_usuario, $id_variedad, $comentario, $puntaje));
     }
 
-    // public function editarComida($id_comida,$nombre){
-    //     $sentencia =  $this->db->prepare('UPDATE comida SET nombre=? WHERE id_comida=?');
-    //     $sentencia->execute(array($nombre, $id_comida));
-    // }
 
     public function borrarComentario($id_comentario){
         $query = $this->db->prepare('SELECT * FROM comentario WHERE id_comentario=?');

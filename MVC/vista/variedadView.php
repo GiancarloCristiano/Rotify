@@ -48,7 +48,7 @@
     
         }
  
-        public function mostrarDetalle($variedad){
+        public function mostrarDetalle($variedad, $promedioPuntajes){
             session_start();
             $smarty = new Smarty();
             if(empty ($_SESSION['USER_NAME'])){
@@ -57,6 +57,7 @@
             $smarty->assign('usuario', $_SESSION['USER_NAME'] );
             } 
             $smarty->assign('variedad',$variedad);
+            $smarty->assign('promedioPuntajes',$promedioPuntajes);
             $smarty->assign('BASE_URL',BASE_URL);
             $smarty->display('../templates/detalleVariedad.tpl');
         }	

@@ -9,13 +9,18 @@ let comments = new Vue({
     data: {
         loading: false,
         comentarios: []// es como el $this->smarty->assign("tareas", $tareas);
+    },
+    methods: {
+        borrar: function(id) {
+            alert(id);
+        }
     }
 });
 
 function getComentarios(){
     comments.loading = true;
-    //app.comentarios=0;
-    fetch("http://localhost/Rotify/api/comentarios/1/")
+    let id = document.querySelector('#main-variedad').dataset.variedad;
+    fetch("http://localhost/Rotify/api/comentarios/" + id)
     .then(response => response.json())
     .then(data => {
         comments.comentarios  = data;
