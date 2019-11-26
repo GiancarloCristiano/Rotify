@@ -12,7 +12,7 @@
   <thead class="thead bg-warning text-white">
     <tr>
       <th scope="col">USUARIO</th>
-      <th scope="col">ADMIN</th>
+      <th scope="col">¿ADMIN?</th>
       <th scope="col">ACCIONES</th>
     </tr>
   </thead>

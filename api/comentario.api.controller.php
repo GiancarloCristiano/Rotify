@@ -33,6 +33,12 @@ class comentariosApiController {
                 $this->view->response($comentarios, 200);
            }
 
+     /*    public function getComentariosPuntajeASC($params = null) {
+            $id_variedad = $params[':id_variedad'];
+            $comentarios = $this->comentariosModel->getComentariosPuntajeASC($id_variedad);
+                $this->view->response($comentarios, 200);
+          } */
+
 
         public function borrarComentario($params = null) {
             $id_comentario = $params[':id_comentario'];

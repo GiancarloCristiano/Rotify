@@ -34,6 +34,7 @@ getComentarios ();
 
 
 
+
 /* async function borrarComentario() {
     let id = document.querySelector('#borrar-comentario').dataset.borrar; //cargamos el ID
      try {

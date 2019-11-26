@@ -4,7 +4,16 @@
 
 <div class="card card-outline-secondary my-4" id="vue-template-comentarios">
   <div class="card-header">
-    Comentarios del Producto
+    <nav class="navbar navbar-expand">
+ 
+      <ul class="navbar-nav mr-auto">
+       <li class="nav-link"><h5>Comentarios del Producto</h5></li></ul>
+       <ul class="navbar-nav my-2 my-lg-2">
+       <li class="nav-link">Ordenar por:</li>
+         <button class="btn btn-light btn mr-sm-2">Fecha</button></li>
+         <button class="btn btn-light btn">Puntaje</button></li>
+      </ul>
+    </nav>
   </div>
   <div class="card-body" v-for="comentario in comentarios">
     <p>{{comentario.comentario}}</p>

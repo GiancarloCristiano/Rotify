@@ -70,11 +70,18 @@ class LoginController
         $password = $_POST['password'];
         //controlar que el usuario no exista
         $this->userModel->signUpUser($username, $password);
+        $user = $this->userModel->getByUsername($username);
+        //$hash = password_hash($password, md5);
+
+        // encontró un user con el username que mandó, y tiene la misma contraseña
         if (!empty($user) && password_verify($password, $user->contraseña)) {
             $this->authHelper->login($user);
             session_start();
+            //$_SESSION('USER_ID') = $user->id_usuario;
             $_SESSION['USER_NAME'] = $user->nombre;
             $_SESSION['USER_ADMIN'] = $user->admin;
+
+
             header('Location:' . HOME);
         } else {
             $this->loginView->showLogin("Login incorrecto");

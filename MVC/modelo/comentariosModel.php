@@ -20,7 +20,12 @@ class ComentariosModel {
     return $comentarios;
     }
 
-
+ /*    public function getComentariosPuntajeASC($id_variedad){
+        $query = $this->db ->prepare( 'SELECT * FROM `comentario` WHERE id_variedad=? ORDER BY `comentario`.`puntaje` DESC'); //preparo la consulta
+        $query->execute(array($id_variedad)); //ejecuto consulta
+        $comentarios = $query->fetchAll(PDO::FETCH_OBJ); //me da la respuesta
+        return $comentarios;
+ */
 
 
     public function insertarComentario($id_usuario, $id_variedad, $comentario, $puntaje){
