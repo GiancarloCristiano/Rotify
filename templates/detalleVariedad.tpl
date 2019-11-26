@@ -5,9 +5,9 @@
   <!-- Page Content -->
   <div id="main-variedad" class="container" data-variedad="{$variedad->id_variedad}">
 
+  <div class="row justify-content-center">
 
-
-      <div class="col-lg-9">
+      <div class="col-9">
 
         <div class="card mt-4">
           <img class="card-img-top img-fluid" src={$variedad->imagen} alt="">
@@ -29,7 +29,7 @@
       <!-- /.col-lg-9 -->
 
     </div>
-
+ </div>
   </div>
   <!-- /.container -->
 

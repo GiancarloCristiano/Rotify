@@ -12,7 +12,9 @@
     <small class="text-muted">Publicado por {{comentario.id_usuario}} el día {{comentario.fecha}}</small>
       <hr>
     <div>
-      <a class="btn btn-secondary btn-sm" v-on:click="borrar(comentario.id_comentario)">Borrar comentario</a>
+      <button class="btn btn-secondary btn-sm" data-borrar="{$comentario->id_comentario}"
+      v-on:click="borrar(comentario.id_comentario)">Borrar comentario</button>
+
     </div>
     <hr>
   </div>
@@ -31,7 +33,8 @@
           <option value=1>&#9733; &#9734; &#9734; &#9734; &#9734;  MUY MALO</option>
         </select>
     </div>
-    <a class="btn btn-warning text-white" href="variedad/comentarios/agregar/{$variedad->id_variedad}">Publicar comentario</a>
+    <button class="btn btn-warning text-white"
+    href="variedad/comentarios/agregar/{$variedad->id_variedad}">Publicar comentario</button>
   </div>
 
 </body>        

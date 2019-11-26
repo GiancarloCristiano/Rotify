@@ -30,9 +30,7 @@ class variedadModel
     }
 
     public function getVariedades(){
-        $db_connection = $this->connect();
-        //$query = $db_connection ->prepare( 'SELECT * FROM variedad'); //preparo la consulta
-        $query = $db_connection->prepare('SELECT variedad.*, comida.nombre as nombre_comida FROM variedad INNER JOIN comida ON (variedad.id_comida = comida.id_comida)'); //preparo la consulta
+        $query = $this->db->prepare('SELECT variedad.*, comida.nombre as nombre_comida FROM variedad INNER JOIN comida ON (variedad.id_comida = comida.id_comida)'); //preparo la consulta
         $ok = $query->execute(); //ejecuto consulta
         if (!$ok) var_dump($query->errorinfo()); //chequeo ejecucion
         $variedad = $query->fetchAll(PDO::FETCH_OBJ); //me da la respuesta
@@ -41,17 +39,6 @@ class variedadModel
     }
 
 
-    function mostrarVariedad(){
-        $variedades = getVariedad();
-        $html = "<ul>";
-        foreach ($variedades as $variedad) {
-            $html .= "<li> {$variedad->nombre} </li>";
-            $html .= "<li> {$variedad->ingredientes} </li>";
-            $html .= "<li> {$variedad->imagen} </li>";
-        }
-        $html .= "</ul>";
-        echo $html;
-    }
 
     public function insertarVariedad($id_comida, $nombre, $ingredientes, $imagen = null){
         $pathImg = null;
@@ -69,18 +56,6 @@ class variedadModel
         return $filepath;
     }
 
-    // public function editarVariedad($id_variedad, $id_comida, $nombre, $ingredientes, $imagen = null){
-    //     if ($imagen){
-    //         $pathImg = null;
-    //         $pathImg = $this->moveFile($imagen);
-    //         echo $pathImg;
-    //     $sentencia =  $this->db->prepare('UPDATE variedad SET id_comida=? ,nombre=? ,ingredientes=?, imagen=?   WHERE id_variedad=?');
-    //     $sentencia->execute(array($id_comida, $nombre, $ingredientes, $pathImg, $id_variedad));
-    //     }else{
-    //         $sentencia =  $this->db->prepare('UPDATE variedad SET id_comida=? ,nombre=? ,ingredientes=?   WHERE id_variedad=?');
-    //         $sentencia->execute(array($id_comida, $nombre, $ingredientes, $id_variedad));
-    //     }
-    // }
 
 
     public function editarVariedad($id_variedad, $id_comida, $nombre, $ingredientes){
@@ -88,6 +63,14 @@ class variedadModel
         $sentencia->execute(array($id_comida, $nombre, $ingredientes, $id_variedad));
     }
 
+    public function editarVariedadyFoto($id_variedad, $id_comida, $nombre, $ingredientes, $imagen = null){
+        $pathImg = null;
+        if ($imagen)
+            $pathImg = $this->moveFile($imagen);
+        echo $pathImg;
+        $sentencia =  $this->db->prepare('UPDATE variedad SET id_comida=? ,nombre=? ,ingredientes=? ,imagen=?   WHERE id_variedad=?');
+        $sentencia->execute(array($id_comida, $nombre, $ingredientes, $pathImg, $id_variedad));
+    }
 
 
     public function borrarVariedad($id_variedad){

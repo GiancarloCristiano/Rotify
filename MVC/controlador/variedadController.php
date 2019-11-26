@@ -70,18 +70,26 @@ class variedadControlador {
             $_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/jpeg" ||
             $_FILES['imagen']['type'] == "image/png"
         ) {
-            $this->variedadModel->editarVariedad($id_variedad,$id_comida, $nombre, $ingredientes, $_FILES['imagen']);
+            $this->variedadModel->editarVariedadyFoto($id_variedad,$id_comida, $nombre, $ingredientes, $_FILES['imagen']);
              header('Location: ' . VARIEDAD );
+        }else if (!$_FILES['imagen']['type'] == "image/jpg" || !$_FILES['imagen']['type'] == "image/jpeg" ||
+            !$_FILES['imagen']['type'] == "image/png"
+        ){
+            $this->variedadModel->editarVariedad($id_variedad,$id_comida, $nombre, $ingredientes);
+             header('Location: ' . VARIEDAD );      
         }else{  
             echo '<script>alert("no se ha ingresado una variedad")</script>';
         }
     }
+
+
     
     public function borrarVariedad($params = null) {
         $id = $params[':ID_VARIEDAD'];
         $this->variedadModel->borrarVariedad($id);
         header('Location: ' . VARIEDAD );
     }
+
     
     public function checkFormato($titulo, $descripcion)
     {
@@ -92,7 +100,6 @@ class variedadControlador {
             $this->variedadmodel->saveTask($titulo, $descripcion,  $_FILES['input_name']['tmp_name']);
         else
             $this->variedadmodel->saveTask($titulo, $descripcion);
-    
         }
 
 

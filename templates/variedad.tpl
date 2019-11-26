@@ -13,7 +13,6 @@
       <th scope="col">PLATO</th>
       <th scope="col">VARIEDAD</th>
       <th scope="col">IMAGEN</th>
-      <th scope="col">VALORACIÓN</th>
       {if isset($smarty.session.USER_NAME)}
       <th scope="col">ACCIONES</th>
       {else}
@@ -28,7 +27,7 @@
       <td scope="row">{$variedad->nombre_comida}</td>
       <td scope="row">{$variedad->nombre}</td>
       <td scope="row"><img width=150px src="{$variedad->imagen}"></td>
-      <td scope="row">{$promedioPuntaje}
+      {* <td scope="row">{$promedioPuntaje} *}
       {* {include file='vue/promedioPuntaje.tpl'} *}
       </td>
       {if isset($smarty.session.USER_NAME)}

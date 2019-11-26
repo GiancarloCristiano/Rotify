@@ -25,7 +25,6 @@ function getComentarios(){
     .then(data => {
         comments.comentarios  = data;
         comments.loading = true;
-        console.log(comments.comentarios);
     })
     
     .catch(error => console.log(error));
@@ -35,19 +34,21 @@ getComentarios ();
 
 
 
-/* function getTareas() {
-    // inicia la carga
-    app.loading = true;
-
-    fetch("api/tareas")
-    .then(response => response.json())
-    .then(tareas => {
-        app.tareas  = tareas;
-        app.loading = false;
-    })
-    .catch(error => console.log(error));
+/* async function borrarComentario() {
+    let id = document.querySelector('#borrar-comentario').dataset.borrar; //cargamos el ID
+     try {
+        await   fetch("http://localhost/Rotify/api/comentarios/" + id //tomamos la URL junto con el ID
+            {
+                method: 'DELETE', //método para borrar
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+    }
+    catch () {
+        console.log();
+    }
 }
 
-
-getTareas();
  */
