@@ -22,10 +22,6 @@ class comentariosApiController {
     }  
 
 
-    // public function  getTasks($params = null) {
-    //     $comidas = $this->comidasModel->getAll();
-    //     $this->view->response($comidas, 200);
-    // }
 
        public function getComentarios($params = null) {
             $id_variedad = $params[':id_variedad'];

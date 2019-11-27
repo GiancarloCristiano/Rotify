@@ -4,17 +4,23 @@
 
 <div class="card card-outline-secondary my-4" id="vue-template-comentarios">
   <div class="card-header">
-    <nav class="navbar navbar-expand">
- 
-      <ul class="navbar-nav mr-auto">
-       <li class="nav-link"><h5>Comentarios del Producto</h5></li></ul>
-       <ul class="navbar-nav my-2 my-lg-2">
-       <li class="nav-link">Ordenar por:</li>
-         <button class="btn btn-light btn mr-sm-2">Fecha</button></li>
-         <button class="btn btn-light btn">Puntaje</button></li>
-      </ul>
-    </nav>
+    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+      <h4>Comentarios del Producto</h4>
+        <div class="btn-group-sm" role="group">
+          <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ordenar por:
+          </button>
+          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <a class="dropdown-item" href="variedad/detalle/1?sort=fecha&order=desc">Más reciente</a>
+            <a class="dropdown-item" href="variedad/detalle/1?sort=fecha&order=asc">Más antiguo</a>
+            <a class="dropdown-item" href="variedad/detalle/1?sort=puntaje&order=desc">Mejor puntaje</a>
+            <a class="dropdown-item" href="variedad/detalle/1?sort=puntaje&order=asc">Peor puntaje</a>
+          </div>
+        </div>
+    </div>
   </div>
+
+
   <div class="card-body" v-for="comentario in comentarios">
     <p>{{comentario.comentario}}</p>
     <h4>{{comentario.puntaje}}</h4>
@@ -42,11 +48,11 @@
           <option value=1>&#9733; &#9734; &#9734; &#9734; &#9734;  MUY MALO</option>
         </select>
     </div>
-    <button class="btn btn-warning text-white"
+    <button type="submit" class="btn btn-warning text-white"
     href="variedad/comentarios/agregar/{$variedad->id_variedad}">Publicar comentario</button>
   </div>
 
-</body>        
+   
 
         <!-- {if isset($smarty.session.USER_NAME)}
             {if ($smarty.session.USER_ADMIN)}
