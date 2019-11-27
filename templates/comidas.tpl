@@ -7,7 +7,7 @@
   <thead class="thead bg-warning text-white">
     <tr>
       <th scope="col">PLATO</th>
-      {if isset($smarty.session.USER_NAME)}
+      {if ($smarty.session.USER_ADMIN)}
       <th scope="col">ACCIONES</th>
       {/if}
     </tr>
@@ -16,7 +16,7 @@
     {foreach from=$comidas item=comida}
     <tr>
       <td scope="row">{$comida->nombre}</td>
-      {if isset($smarty.session.USER_NAME)}
+      {if ($smarty.session.USER_ADMIN)}
         <td>
         <a class="btn btn-warning text-white" href="comida/editar/{$comida->id_comida}">EDITAR</a>
         <a class="btn btn-secondary" href="comida/borrar/{$comida->id_comida}">X</a>
