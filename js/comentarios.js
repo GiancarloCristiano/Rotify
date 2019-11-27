@@ -4,6 +4,9 @@
 // components: {
 //     StarRating
 //   }
+let loggedInUser = JSON.parse(document.getElementById("datos-usuario").value);
+
+
 let comments = new Vue({
     el: "#vue-template-comentarios",
     data: {

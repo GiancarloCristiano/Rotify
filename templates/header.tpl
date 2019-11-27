@@ -22,6 +22,12 @@
 </head>
 
 <body class="container">
+     {if isset($smarty.session.USER)}
+        <input type="hidden" id="datos-usuario" value='{json_encode($smarty.session.USER)}'>
+      {else}
+        <input type="hidden" id="datos-usuario" value="">
+      {/if}
+  
 
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f0f0f0;">
 

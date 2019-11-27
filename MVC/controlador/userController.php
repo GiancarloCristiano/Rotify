@@ -46,7 +46,8 @@ class LoginController
             //$_SESSION('USER_ID') = $user->id_usuario;
             $_SESSION['USER_NAME'] = $user->nombre;
             $_SESSION['USER_ADMIN'] = $user->admin;
-
+            $user->contraseña = '';
+            $_SESSION['USER'] = $user;
 
             header('Location:' . HOME);
         } else {
@@ -80,7 +81,8 @@ class LoginController
             //$_SESSION('USER_ID') = $user->id_usuario;
             $_SESSION['USER_NAME'] = $user->nombre;
             $_SESSION['USER_ADMIN'] = $user->admin;
-
+            $user->contraseña = '';
+            $_SESSION['USER'] = $user;
 
             header('Location:' . HOME);
         } else {
