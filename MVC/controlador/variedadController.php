@@ -19,6 +19,7 @@ class variedadControlador {
        $variedades = $this->variedadModel->getVariedades(); 
        $comidasFK = $this->comidasModel->getComidas();
        $titulo='VARIEDADES';
+    //    $promedioPuntajes = $this->variedadModel->getPromPuntajes();
        $this->variedadView->mostrarVariedad($variedades,$titulo,$comidasFK);
     }	
 
@@ -97,9 +98,9 @@ class variedadControlador {
             $_FILES['input_name']['type'] == "image/jpg" ||
             $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png"
         )
-            $this->variedadmodel->saveTask($titulo, $descripcion,  $_FILES['input_name']['tmp_name']);
+            $this->variedadModel->saveTask($titulo, $descripcion,  $_FILES['input_name']['tmp_name']);
         else
-            $this->variedadmodel->saveTask($titulo, $descripcion);
+            $this->variedadModel->saveTask($titulo, $descripcion);
         }
 
 
@@ -114,7 +115,12 @@ class variedadControlador {
             //$this->variedadView->mostrarDetalle($variedad);
         }	
 
-
+        public function getPromPuntajes($params = null){
+            $id_variedad = $params[':id_variedad'];
+            $promedioPuntajes = $this->variedadModel->getPromPuntajes($id_variedad);
+            $this->variedadView->mostrarDetalle($promedioPuntajes);
+            
+        }
     
 }
 ?>
