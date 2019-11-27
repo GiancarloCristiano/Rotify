@@ -1,5 +1,5 @@
 {include 'templates/header.tpl'}
-
+{if isset($smarty.session.USER_ADMIN)}
 <form action="" method="POST" class="col-md-4 offset-md-4 mt-4" enctype= "multipart/form-data">
  
     <div class="form-group">
@@ -33,6 +33,7 @@
     <button type="submit" class="btn btn-warning text-white">GUARDAR</button>
     <div>
 </form>
+{/if}
 
 
 {include 'templates/footer.tpl'}
