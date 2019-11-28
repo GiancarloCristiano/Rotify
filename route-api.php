@@ -11,15 +11,12 @@
     // rutas
     $router->addRoute("/comidas", "GET", "comidasApiController", "getComidas");
     $router->addRoute("/comidas/:id_comida", "GET", "comidasApiController", "getComidas");
-    $router->addRoute("/comentarios/:id_variedad/", "GET", "comentariosApiController", "getComentarios");
-    $router->addRoute("/comentarios/:id_variedad?sort=fecha&order=desc", "GET", "comentariosApiController", "getComentarios");
-    $router->addRoute("/comentarios/:id_variedad?sort=fecha&order=asc", "GET", "comentariosApiController", "getComentarios");
-    $router->addRoute("/comentarios/:id_variedad?sort=puntaje&order=desc", "GET", "comentariosApiController", "getComentarios");
-    $router->addRoute("/comentarios/:id_variedad?sort=puntaje&order=asc", "GET", "comentariosApiController", "getComentarios");
-    $router->addRoute("/comentarios/:id_variedad/insertar/", "POST", "comentariosApiController", "insertarComentario");
-    $router->addRoute("/comentarios/borrar/:id_usuario/:id_comentario/", "DELETE", "comentariosApiController", "borrarComentario");
-    $router->addRoute("/comentarios/:id_variedad/puntajeprom/", "GET", "comentariosApiController", "getPromPuntaje");
+    $router->addRoute("/variedades/:id_variedad/comentarios", "GET", "comentariosApiController", "getComentarios");
+    $router->addRoute("/comentario", "POST", "comentariosApiController", "insertarComentarios");
 
+    $router->addRoute("/comentarios/:id_variedad/insertar/", "POST", "comentariosApiController", "insertarComentario");
+    $router->addRoute("/comentarios/:id_comentario/", "DELETE", "comentariosApiController", "borrarComentario");
+    $router->addRoute("/comentarios/:id_variedad/puntajeprom/", "GET", "comentariosApiController", "getPromPuntaje");
 
 
     //run

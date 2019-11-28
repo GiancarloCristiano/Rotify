@@ -24,8 +24,11 @@
 <body class="container">
      {if isset($smarty.session.USER)}
         <input type="hidden" id="datos-usuario" value='{json_encode($smarty.session.USER)}'>
+        {if ($smarty.session.USER_ADMIN)}
+        <input type="hidden" id="esAdmin" value='{$smarty.session.USER_ADMIN}'>
+        {/if}
       {else}
-        <input type="hidden" id="datos-usuario" value="">
+      <input type="hidden" id="datos-usuario" value=''>
       {/if}
   
 

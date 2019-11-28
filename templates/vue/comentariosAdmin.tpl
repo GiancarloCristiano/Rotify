@@ -20,43 +20,41 @@
     </div>
   </div>
 
+ 
 
   <div class="card-body" v-for="comentario in comentarios">
     <p>{{comentario.comentario}}</p>
     <h4>{{comentario.puntaje}}</h4>
     <small class="text-muted">Publicado por {{comentario.id_usuario}} el día {{comentario.fecha}}</small>
       <hr>
-    <div>
-      <button class="btn btn-secondary btn-sm" data-borrar="{$comentario->id_comentario}" id="borrar-comentario"
-      v-on:click="borrar(comentario.id_comentario)">Borrar comentario</button>
 
-    </div>
-    <hr>
-  </div>
-  <div class="card-footer">
-    <div class="form-group">
-      <label>Ingrese comentario</label>
-        <textarea class="form-control" name="comentario" rows="3" id="formComentario">
-        </textarea>
-    </div>
-    <div class="form-group">
-      <label>Ingrese puntaje</label>
-        <select class="form-control" name="puntaje" id="formPuntaje">
-          <option selected value=5>&#9733; &#9733; &#9733; &#9733; &#9733; EXCELENTE</option>
-          <option value=4>&#9733; &#9733; &#9733; &#9733; &#9734;  MUY BUENO</option>
-          <option value=3>&#9733; &#9733; &#9733; &#9734; &#9734;  REGULAR</option>
-          <option value=2>&#9733; &#9733; &#9734; &#9734; &#9734;  MALO</option>
-          <option value=1>&#9733; &#9734; &#9734; &#9734; &#9734;  MUY MALO</option>
-        </select>
-    </div>
-    <button type="submit" class="btn btn-warning text-white" id="agregarComentario"
-    href="variedad/comentarios/agregar/{$variedad->id_variedad}">Publicar comentario</button>
-  </div>
 
+      <div v-if="loggedInUser && loggedInUser.admin">
+        <button class="btn btn-secondary btn-sm" id="borrar-comentario"
+        v-on:click="borrar(comentario.id_comentario)">Borrar comentario</button>
+        <hr>
+      </div>
+    </div>
+
+
+    <div class="card-footer" v-if="loggedInUser">
+      <div class="form-group">
+        <label>Ingrese comentario</label>
+          <textarea class="form-control" name="comentario" rows="3" id="formComentario">
+          </textarea>
+      </div>
+      <div class="form-group">
+       <label>Ingrese puntaje</label>
+         <select class="form-control" name="puntaje" id="formPuntaje">
+           <option selected value=5>&#9733; &#9733; &#9733; &#9733; &#9733; EXCELENTE</option>
+           <option value=4>&#9733; &#9733; &#9733; &#9733; &#9734;  MUY BUENO</option>
+           <option value=3>&#9733; &#9733; &#9733; &#9734; &#9734;  REGULAR</option>
+           <option value=2>&#9733; &#9733; &#9734; &#9734; &#9734;  MALO</option>
+           <option value=1>&#9733; &#9734; &#9734; &#9734; &#9734;  MUY MALO</option>
+          </select>
+      </div>
+      <button type="submit" class="btn btn-warning text-white" id="agregarComentario"
+       v-on:click="agregar()">Publicar comentario</button>
+    </div>
    
-
-        <!-- {if isset($smarty.session.USER_NAME)}
-            {if ($smarty.session.USER_ADMIN)}
-            {/if}  -->
-
 {/literal}

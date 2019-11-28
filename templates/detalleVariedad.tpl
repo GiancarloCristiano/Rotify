@@ -21,15 +21,10 @@
         </div>
         <!-- /.card -->
 
-     {if isset($smarty.session.USER_NAME)}
-          {if ($smarty.session.USER_ADMIN)}
+
+        
             {include file='vue/comentariosAdmin.tpl'}
-          {else}
-            {include file='vue/comentariosUser.tpl'}
-          {/if}
-          {else} 
-            {include file='vue/comentariosAnon.tpl'}
-          {/if}
+ 
 
 
         

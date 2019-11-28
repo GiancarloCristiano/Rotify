@@ -38,18 +38,18 @@ class comentariosApiController {
 
         public function borrarComentario($params = null) {
             $id_comentario = $params[':id_comentario'];
-            $id_usuario = $params[':id_usuario'];
-            $usuario = $this->userModel->getByUserID($id_usuario);
-            if ($usuario->admin){
+            //$id_usuario = $params[':id_usuario'];
+            //$usuario = $this->userModel->getByUserID($id_usuario);
+            //if ($usuario->admin){
                 $comentario = $this->comentariosModel->borrarComentario($id_comentario);        
                 if ($comentario){
                     $this->view->response($comentario, 200);
                 }else{
                     $this->view->response("El comentario de id={$id_comentario} no existe", 404);
                 }
-            }else{
-                $this->view->response("No tiene permisos para borrarlo", 401);
-            }
+            //}else{
+            //    $this->view->response("No tiene permisos para borrarlo", 401);
+            //}
         } 
 
 

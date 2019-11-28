@@ -29,7 +29,7 @@ class ComentariosModel {
 
 
     public function insertarComentario($id_usuario, $id_variedad, $comentario, $puntaje){
-    $sentencia = $this->db->prepare('INSERT INTO comentario (id_usuario, id_variedad, comentario, puntaje, fecha) VALUES(?,?,?,?,CURRENT_TIMESTAMP)');
+    $sentencia = $this->db->prepare('INSERT INTO comentario (id_usuario, id_variedad, comentario, puntaje) VALUES(?,?,?,?)');
     $sentencia->execute(array($id_usuario, $id_variedad, $comentario, $puntaje));
     }
 

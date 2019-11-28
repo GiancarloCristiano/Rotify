@@ -30,7 +30,7 @@
       {* <td scope="row">{$promedioPuntaje} *}
       {* {include file='vue/promedioPuntaje.tpl'} *}
       </td>
-      {if ($smarty.session.USER_ADMIN)}
+      {if isset ($smarty.session.USER_ADMIN)}
       <td scope="row">
         <a class="btn btn-warning text-white" href="variedad/editar/{$variedad->id_variedad}">EDITAR</a>
         <a class="btn btn-secondary" href="variedad/borrar/{$variedad->id_variedad}">X</a>
