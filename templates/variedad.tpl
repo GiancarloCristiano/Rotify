@@ -23,7 +23,7 @@
   </thead>
   <tbody>
     {foreach from= $variedades item=variedad}
-    <tr data-variedad="{$variedad->id_variedad}">
+    <tr>
       <td scope="row">{$variedad->nombre_comida}</td>
       <td scope="row">{$variedad->nombre}</td>
       <td scope="row"><img width=150px src="{$variedad->imagen}"></td>
@@ -52,7 +52,7 @@
 </div>
 {/if}
 
-  <script src="js/promedioPuntaje.js"></script>
+  <!-- <script src="js/promedioPuntaje.js"></script>-->
 </body>
 
 {include 'templates/footer.tpl'}

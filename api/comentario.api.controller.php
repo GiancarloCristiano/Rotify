@@ -29,9 +29,27 @@ class comentariosApiController {
                 $this->view->response($comentarios, 200);
            }
 
-        // public function getComentariosPuntajeDESC($params = null) {
+        //     public function getComentariosMejores($params = null) {
         //     $id_variedad = $params[':id_variedad'];
-        //     $comentarios = $this->comentariosModel->getComentariosPuntajeDESC($id_variedad);
+        //     $comentarios = $this->comentariosModel->getComentariosMejores($id_variedad);
+        //         $this->view->response($comentarios, 200);
+        // }
+
+        //     public function getComentariosPeores($params = null) {
+        //     $id_variedad = $params[':id_variedad'];
+        //     $comentarios = $this->comentariosModel->getComentariosPeores($id_variedad);
+        //         $this->view->response($comentarios, 200);
+        // }
+
+        //     public function getComentariosRecientes($params = null) {
+        //     $id_variedad = $params[':id_variedad'];
+        //     $comentarios = $this->comentariosModel->getComentariosRecientes($id_variedad);
+        //         $this->view->response($comentarios, 200);
+        // }
+
+        //     public function getComentariosAntiguos($params = null) {
+        //     $id_variedad = $params[':id_variedad'];
+        //     $comentarios = $this->comentariosModel->getComentariosAntiguos($id_variedad);
         //         $this->view->response($comentarios, 200);
         // }
 

@@ -4,20 +4,9 @@ let jsonUser = document.querySelector("#datos-usuario").value;
 let jsloggedInUser = null;
 if(jsonUser !== ''){
     jsloggedInUser = JSON.parse(jsonUser);
-
-    let nombreUser = jsloggedInUser.nombre;
-    console.log (nombreUser);
-    let adminUser = jsloggedInUser.admin;
-    console.log (adminUser);
 }else{
     jsloggedInUser = null;
-    let adminUser = false;
-    let nombreUser = '';
-    console.log (adminUser);
-    console.log (nombreUser);
 }
-
-
 
 let comments = new Vue({
     el: "#vue-template-comentarios",
