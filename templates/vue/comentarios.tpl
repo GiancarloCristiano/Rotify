@@ -5,20 +5,16 @@
 <div class="card card-outline-secondary my-4" id="vue-template-comentarios">
   <div class="card-header">
     <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
-      <h4>Comentarios del Producto</h4>
+      <h4>Comentarios del Producto <span class="badge badge-pill badge-warning text-white">8</h4>
         <div class="btn-group-sm" role="group">
           <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle"
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ordenar por:
           </button>
           <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-            <!-- <a class="dropdown-item" v-onclick="getOrderReciente()">+Más reciente</a>-->
-            <!-- <a class="dropdown-item" v-onclick="getOrderAntiguo()"+>Más antiguo</a>-->
-            <!-- <a class="dropdown-item" v-onclick="getOrderMejores()">+Mejor puntaje</a>-->
-            <!-- <a class="dropdown-item" v-onclick="getOrderPeores()">+Peor puntaje</a> -->
-            <a class="dropdown-item">Más reciente</a>
-            <a class="dropdown-item">Más antiguo</a>
-            <a class="dropdown-item">Mejor puntaje</a>
-            <a class="dropdown-item">Peor puntaje</a>
+            <button class="dropdown-item" v-on:click="getOrderReciente()">Más reciente</button>
+            <button class="dropdown-item" v-on:click="getOrderAntiguo()">Más antiguo</button>
+            <button class="dropdown-item" v-on:click="getOrderMejores()">Mejor puntaje</button>
+            <button class="dropdown-item" v-on:click="getOrderPeores()">Peor puntaje</button>
           </div>
         </div>
       </div>
@@ -51,7 +47,7 @@
       </div>
   </div>
 
-  <div class="card-body" v-else=>
+  <div class="card-body" v-else>
     <p>Aún no existen comentarios para este producto</p>
   </div>
 

@@ -25,35 +25,37 @@ class comentariosApiController {
 
        public function getComentarios($params = null) {
             $id_variedad = $params[':id_variedad'];
-            $comentarios = $this->comentariosModel->getComentarios($id_variedad);
-                $this->view->response($comentarios, 200);
-           }
 
-
-
-        public function getComentariosRecientes($params = null) {
-           $id_variedad = $params[':id_variedad'];
-           $comentarios = $this->comentariosModel->getComentariosRecientes($id_variedad);
-               $this->view->response($comentarios, 200);
+            if(isset($_GET["sort"])){
+                $sort = $_GET["sort"];
+                $order = $_GET["order"];
+            
+            
+                if ($sort == "fecha" && $order == "desc"){
+                    $comentarios = $this->comentariosModel->getComentariosRecientes($id_variedad);
+                    $this->view->response($comentarios, 200);
+                }
+                if ($sort == "fecha" && $order == "asc"){
+                    $comentarios = $this->comentariosModel->getComentariosAntiguos($id_variedad);
+                    $this->view->response($comentarios, 200);
+                }
+                if ($sort == "puntaje" && $order == "desc"){
+                    $comentarios = $this->comentariosModel->getComentariosMejores($id_variedad);
+                    $this->view->response($comentarios, 200);
+                }
+                if ($sort == "puntaje" && $order == "asc"){
+                    $comentarios = $this->comentariosModel->getComentariosPeores($id_variedad);
+                    $this->view->response($comentarios, 200);
+                }
+                
+            }else{
+                $comentarios = $this->comentariosModel->getComentarios($id_variedad);
+                $this->view->response($comentarios, 200);    
+            }
+            
         }
+        
 
-        public function getComentariosAntiguos($params = null) {
-           $id_variedad = $params[':id_variedad'];
-           $comentarios = $this->comentariosModel->getComentariosAntiguos($id_variedad);
-                $this->view->response($comentarios, 200);
-        }
-
-        public function getComentariosMejores($params = null) {
-            $id_variedad = $params[':id_variedad'];
-            $comentarios = $this->comentariosModel->getComentariosMejores($id_variedad);
-                $this->view->response($comentarios, 200);
-       }
-
-        public function getComentariosPeores($params = null) {
-            $id_variedad = $params[':id_variedad'];
-            $comentarios = $this->comentariosModel->getComentariosPeores($id_variedad);
-                $this->view->response($comentarios, 200);
-       }
 
   
 
