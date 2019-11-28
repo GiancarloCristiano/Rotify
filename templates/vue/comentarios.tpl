@@ -11,10 +11,10 @@
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ordenar por:
           </button>
           <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-            <a class="dropdown-item" href="variedad/detalle/1?sort=fecha&order=desc">Más reciente</a>
-            <a class="dropdown-item" href="variedad/detalle/1?sort=fecha&order=asc">Más antiguo</a>
-            <a class="dropdown-item" href="variedad/detalle/1?sort=puntaje&order=desc">Mejor puntaje</a>
-            <a class="dropdown-item" href="variedad/detalle/1?sort=puntaje&order=asc">Peor puntaje</a>
+            <a class="dropdown-item">Más reciente</a>
+            <a class="dropdown-item">Más antiguo</a>
+            <a class="dropdown-item">Mejor puntaje</a>
+            <a class="dropdown-item">Peor puntaje</a>
           </div>
         </div>
     </div>
@@ -25,16 +25,17 @@
   <div class="card-body" v-for="comentario in comentarios">
     <p>{{comentario.comentario}}</p>
     <h4>{{comentario.puntaje}}</h4>
-    <small class="text-muted">Publicado por {{comentario.id_usuario}} el día {{comentario.fecha}}</small>
+    <small class="text-muted">Publicado por {{comentario.nombre_usuario}} el día {{comentario.fecha}}</small>
       <hr>
 
 
-      <div v-if="loggedInUser && loggedInUser.admin">
+      <div v-if="loggedInUser && loggedInUser.admin==1">
         <button class="btn btn-secondary btn-sm" id="borrar-comentario"
         v-on:click="borrar(comentario.id_comentario)">Borrar comentario</button>
         <hr>
       </div>
     </div>
+    
 
 
     <div class="card-footer" v-if="loggedInUser">

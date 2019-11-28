@@ -1,23 +1,20 @@
 "use strict"
-//  var StarRating = require('vue-star-rating');
-// Vue.component('star-rating', VueStarRating.default);
-// components: {
-//     StarRating
-//   }
+
 let jsonUser = document.querySelector("#datos-usuario").value;
 let jsloggedInUser = null;
 if(jsonUser !== ''){
- jsloggedInUser = JSON.parse(jsonUser);
+    jsloggedInUser = JSON.parse(jsonUser);
 
-let nombreUser = jsloggedInUser.nombre;
-console.log (nombreUser);
-let adminUser = jsloggedInUser.admin;
-console.log (adminUser);
-}
-else{
- jsloggedInUser = null;
-let adminUser = false;
-let nombreUser = '';
+    let nombreUser = jsloggedInUser.nombre;
+    console.log (nombreUser);
+    let adminUser = jsloggedInUser.admin;
+    console.log (adminUser);
+}else{
+    jsloggedInUser = null;
+    let adminUser = false;
+    let nombreUser = '';
+    console.log (adminUser);
+    console.log (nombreUser);
 }
 
 
@@ -27,7 +24,7 @@ let comments = new Vue({
     data: {
         loading: false,
         comentarios: [],// es como el $this->smarty->assign("tareas", $tareas);
-        loggedInUser: jsloggedInUser
+        loggedInUser: jsloggedInUser,
     },
     methods: {
         borrar: function(id) {
@@ -37,16 +34,18 @@ let comments = new Vue({
             .then(r => r.json()).then(json => getComentarios()).catch(e => console.log(e));
         },
         agregar: function(){
+            let id_variedad=document.querySelector('#main-variedad').dataset.variedad;
             let nuevoComentario = {
                 "id_usuario": jsloggedInUser.id_usuario,
                 "comentario": document.querySelector('#formComentario').value,
                 "puntaje": document.querySelector('#formPuntaje').value,
             };
-            fetch('api/comentario/', {
+            let url='api/comentario/'+id_variedad;
+            fetch(url, {
                 "method": "POST",
                 "body": JSON.stringify(nuevoComentario)
-            });
-            //.then(r =>r.json()).then(json => getComentarios()).catch(e => console.log(e));
+            })
+            .then(r => getComentarios()).catch(e => console.log(e));
         }
     }
 });
@@ -67,25 +66,3 @@ function getComentarios(){
 }
 
 getComentarios ();
-
-
-
-
-/* async function borrarComentario() {
-    let id = document.querySelector('#borrar-comentario').dataset.borrar; //cargamos el ID
-     try {
-        await   fetch("http://localhost/Rotify/api/comentarios/" + id //tomamos la URL junto con el ID
-            {
-                method: 'DELETE', //método para borrar
-                mode: 'cors',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-    }
-    catch () {
-        console.log();
-    }
-}
-
- */

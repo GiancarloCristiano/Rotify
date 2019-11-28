@@ -29,11 +29,11 @@ class comentariosApiController {
                 $this->view->response($comentarios, 200);
            }
 
-     /*    public function getComentariosPuntajeASC($params = null) {
-            $id_variedad = $params[':id_variedad'];
-            $comentarios = $this->comentariosModel->getComentariosPuntajeASC($id_variedad);
-                $this->view->response($comentarios, 200);
-          } */
+        // public function getComentariosPuntajeDESC($params = null) {
+        //     $id_variedad = $params[':id_variedad'];
+        //     $comentarios = $this->comentariosModel->getComentariosPuntajeDESC($id_variedad);
+        //         $this->view->response($comentarios, 200);
+        // }
 
 
         public function borrarComentario($params = null) {
@@ -56,7 +56,7 @@ class comentariosApiController {
         public function insertarComentario($params = null){
             $id_variedad = $params[':id_variedad'];
             $comentario = $this->getData();
-                $this->comentariosModel->insertarComentario($id_variedad, $comentario->id_usuario, $comentario->comentario, $comentario->puntaje);
+                $this->comentariosModel->insertarComentario($comentario->id_usuario, $id_variedad, $comentario->comentario, $comentario->puntaje);
 
         }
 

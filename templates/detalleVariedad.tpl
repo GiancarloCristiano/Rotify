@@ -21,13 +21,10 @@
         </div>
         <!-- /.card -->
 
-
-        
-            {include file='vue/comentariosAdmin.tpl'}
+       
+            {include file='vue/comentarios.tpl'}
  
-
-
-        
+      
         <!-- /.card -->
 
     </div>
