@@ -27,16 +27,21 @@
  
 
   <div class="card-body" v-for="comentario in comentarios" v-if="comentarios">
-    <p>{{comentario.comentario}}</p>
-    <div v-if="comentario.puntaje">
-      <h5 v-if="comentario.puntaje == 1" class="text-warning">&#9733; &#9734; &#9734; &#9734; &#9734;</h5>
-      <h5 v-if="comentario.puntaje == 2" class="text-warning">&#9733; &#9733; &#9734; &#9734; &#9734;</h5>
-      <h5 v-if="comentario.puntaje == 3" class="text-warning">&#9733; &#9733; &#9733; &#9734; &#9734;</h5>
-      <h5 v-if="comentario.puntaje == 4" class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</h5>
-      <h5 v-if="comentario.puntaje == 5" class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</h5>
-      <h6>{{comentario.puntaje}}</h6>
+    <div class="btn-toolbar justify-content-between">
+      <div>
+        <h5>{{comentario.comentario}}</h5>
+        <small class="text-muted">Publicado por {{comentario.nombre_usuario}}. Fecha: {{comentario.fecha}}</small>
+      </div>
+
+      <div v-if="comentario.puntaje">
+        <h5 v-if="comentario.puntaje == 1" class="text-warning">&#9733; &#9734; &#9734; &#9734; &#9734;</h5>
+        <h5 v-if="comentario.puntaje == 2" class="text-warning">&#9733; &#9733; &#9734; &#9734; &#9734;</h5>
+        <h5 v-if="comentario.puntaje == 3" class="text-warning">&#9733; &#9733; &#9733; &#9734; &#9734;</h5>
+        <h5 v-if="comentario.puntaje == 4" class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</h5>
+        <h5 v-if="comentario.puntaje == 5" class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</h5>
+        <p class="text-right"><span class="badge badge-pill badge-secondary text-white">{{comentario.puntaje}}</span></p>
+      </div>
     </div>
-    <small class="text-muted">Publicado por {{comentario.nombre_usuario}}. Fecha: {{comentario.fecha}}</small>
     <hr>
  
       <div v-if="loggedInUser && loggedInUser.admin==1">
