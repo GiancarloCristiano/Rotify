@@ -1,6 +1,6 @@
 <?php
     require_once('Router.php');
-    // require_once('./api/comidas.api.controller.php');
+    require_once('./api/comidas.api.controller.php');
     require_once('./api/comentario.api.controller.php');
     
     // CONSTANTES PARA RUTEO
@@ -9,13 +9,14 @@
     $router = new Router();
 
     // rutas
-    //$router->addRoute("/comidas", "GET", "comidasApiController", "getComidas");
-    // $router->addRoute("/comidas/:id_comida", "GET", "comidasApiController", "getComidas");
+    $router->addRoute("/comidas", "GET", "comidasApiController", "getComidas");
+    $router->addRoute("/comidas/:id_comida", "GET", "comidasApiController", "getComidas");
+
     $router->addRoute("/variedades/:id_variedad/comentarios", "GET", "comentariosApiController", "getComentarios");
-    $router->addRoute("/variedades/:id_variedad/comentarios?sort=puntaje&order=desc", "GET", "comentariosApiController", "getComentariosPuntajeDESC");
-    $router->addRoute("/variedades/:id_variedad/comentarios?sort=puntaje&order=asc", "GET", "comentariosApiController", "getComentariosPuntajeASC");
-    $router->addRoute("/variedades/:id_variedad/comentarios?sort=fecha&order=desc", "GET", "comentariosApiController", "getComentariosFechaDESC");
-    $router->addRoute("/variedades/:id_variedad/comentarios?sort=fecha&order=asc", "GET", "comentariosApiController", "getComentariosFechaASC");
+    $router->addRoute("/variedades/:id_variedad/comentarios?sort=fecha&order=desc", "GET", "comentariosApiController", "getComentariosRecientes");
+    $router->addRoute("/variedades/:id_variedad/comentarios?sort=fecha&order=asc", "GET", "comentariosApiController", "getComentariosAntiguos");
+    $router->addRoute("/variedades/:id_variedad/comentarios?sort=puntaje&order=desc", "GET", "comentariosApiController", "getComentariosMejores");
+    $router->addRoute("/variedades/:id_variedad/comentarios?sort=puntaje&order=asc", "GET", "comentariosApiController", "getComentariosPeores");
 
     $router->addRoute("/comentario/:id_variedad", "POST", "comentariosApiController", "insertarComentario");
     $router->addRoute("/comentarios/:id_comentario/", "DELETE", "comentariosApiController", "borrarComentario");

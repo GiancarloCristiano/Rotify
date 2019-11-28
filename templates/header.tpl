@@ -18,7 +18,6 @@
   <base href={BASE_URL}>
   <link rel="icon" type="image/png" href="img/rotify_icon.png" />
   <title>Rotify</title>
-  {* session_start(); *}
 </head>
 
 <body class="container">

@@ -12,10 +12,6 @@ class comidasApiController {
         $this->view = new JSONView();
     }
 
-    // public function  getTasks($params = null) {
-    //     $comidas = $this->comidasModel->getAll();
-    //     $this->view->response($comidas, 200);
-    // }
 
     public function getComida($params = null) {
         $id = $params[':id_comida'];
@@ -28,8 +24,6 @@ class comidasApiController {
     } 
 
     public function getComidas($params = null) {
-        
-        
         $comidas = $this->comidasModel->getComidas();        
         if ($comidas)
             $this->view->response($comidas, 200);

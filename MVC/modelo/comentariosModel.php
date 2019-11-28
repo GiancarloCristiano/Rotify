@@ -21,33 +21,41 @@ class ComentariosModel {
     return $comentarios;
     }
 
-//    public function getComentariosMejores($id_variedad){
-//     $query = $this->db ->prepare('SELECT comentario.*, usuario.nombre as nombre_usuario FROM comentario INNER JOIN usuario
-//     ON (comentario.id_usuario = usuario.id_usuario) WHERE comentario.id_variedad=? ORDER BY `comentario`.`puntaje` DESC'); //preparo la consulta
-//     $query->execute(array($id_variedad)); //ejecuto consulta
-//     $comentarios = $query->fetchAll(PDO::FETCH_OBJ); //me da la respuesta
-//     return $comentarios;
+
+
+    public function getComentariosRecientes($id_variedad){
+        $query = $this->db ->prepare('SELECT comentario.*, usuario.nombre as nombre_usuario FROM comentario INNER JOIN usuario
+        ON (comentario.id_usuario = usuario.id_usuario) WHERE comentario.id_variedad=? ORDER BY `comentario`.`fecha` DESC'); //preparo la consulta
+        $query->execute(array($id_variedad)); //ejecuto consulta
+        $comentarios = $query->fetchAll(PDO::FETCH_OBJ); //me da la respuesta
+        return $comentarios;
+       }
+   
+    public function getComentariosAntiguos($id_variedad){
+        $query = $this->db ->prepare('SELECT comentario.*, usuario.nombre as nombre_usuario FROM comentario INNER JOIN usuario
+        ON (comentario.id_usuario = usuario.id_usuario) WHERE comentario.id_variedad=? ORDER BY `comentario`.`fecha` ASC'); //preparo la consulta
+        $query->execute(array($id_variedad)); //ejecuto consulta
+        $comentarios = $query->fetchAll(PDO::FETCH_OBJ); //me da la respuesta
+        return $comentarios;
+    }
+
+    public function getComentariosMejores($id_variedad){
+        $query = $this->db ->prepare('SELECT comentario.*, usuario.nombre as nombre_usuario FROM comentario INNER JOIN usuario
+        ON (comentario.id_usuario = usuario.id_usuario) WHERE comentario.id_variedad=? ORDER BY `comentario`.`puntaje` DESC'); //preparo la consulta
+        $query->execute(array($id_variedad)); //ejecuto consulta
+        $comentarios = $query->fetchAll(PDO::FETCH_OBJ); //me da la respuesta
+        return $comentarios;
+    }
  
-//    public function getComentarioPeores($id_variedad){
-//     $query = $this->db ->prepare('SELECT comentario.*, usuario.nombre as nombre_usuario FROM comentario INNER JOIN usuario
-//     ON (comentario.id_usuario = usuario.id_usuario) WHERE comentario.id_variedad=? ORDER BY `comentario`.`puntaje` ASC'); //preparo la consulta
-//     $query->execute(array($id_variedad)); //ejecuto consulta
-//     $comentarios = $query->fetchAll(PDO::FETCH_OBJ); //me da la respuesta
-//     return $comentarios;
+    public function getComentariosPeores($id_variedad){
+        $query = $this->db ->prepare('SELECT comentario.*, usuario.nombre as nombre_usuario FROM comentario INNER JOIN usuario
+        ON (comentario.id_usuario = usuario.id_usuario) WHERE comentario.id_variedad=? ORDER BY `comentario`.`puntaje` ASC'); //preparo la consulta
+        $query->execute(array($id_variedad)); //ejecuto consulta
+        $comentarios = $query->fetchAll(PDO::FETCH_OBJ); //me da la respuesta
+        return $comentarios;
+    }
 
-//    public function getComentariosRecientes($id_variedad){
-//     $query = $this->db ->prepare('SELECT comentario.*, usuario.nombre as nombre_usuario FROM comentario INNER JOIN usuario
-//     ON (comentario.id_usuario = usuario.id_usuario) WHERE comentario.id_variedad=? ORDER BY `comentario`.`fecha` DESC'); //preparo la consulta
-//     $query->execute(array($id_variedad)); //ejecuto consulta
-//     $comentarios = $query->fetchAll(PDO::FETCH_OBJ); //me da la respuesta
-//     return $comentarios;
 
-//    public function getComentariosPeores($id_variedad){
-//     $query = $this->db ->prepare('SELECT comentario.*, usuario.nombre as nombre_usuario FROM comentario INNER JOIN usuario
-//     ON (comentario.id_usuario = usuario.id_usuario) WHERE comentario.id_variedad=? ORDER BY `comentario`.`fecha` ASC'); //preparo la consulta
-//     $query->execute(array($id_variedad)); //ejecuto consulta
-//     $comentarios = $query->fetchAll(PDO::FETCH_OBJ); //me da la respuesta
-//     return $comentarios;
 
 
     public function insertarComentario($id_usuario, $id_variedad, $comentario, $puntaje){

@@ -6,7 +6,6 @@ require_once "Router.php";
 
 $action = $_GET["action"]; //
 define("BASE_URL", 'http://' . $_SERVER["SERVER_NAME"] . ':' . $_SERVER["SERVER_PORT"] . dirname($_SERVER["PHP_SELF"]) . '/');
-//define("BASE_URL", 'http://'.$_SERVER["db_a_pedido"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
 
 define("HOME", BASE_URL . '');
 define("VARIEDAD", BASE_URL . 'variedad');
