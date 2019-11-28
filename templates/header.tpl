@@ -13,8 +13,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-
-  {* <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet"> *}
   <base href={BASE_URL}>
   <link rel="icon" type="image/png" href="img/rotify_icon.png" />
   <title>Rotify</title>

@@ -28,6 +28,7 @@
     </div>
       <!-- /.col-lg-9 -->
 
+  <hr>
   </div>
 
   <!-- /.container -->

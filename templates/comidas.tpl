@@ -1,4 +1,5 @@
 {include 'templates/header.tpl'}
+<hr>
 <div class="container">
   <h1 class="text-center">{$primertitulo}</h1>
 </div>
@@ -32,6 +33,30 @@
 <a class="btn btn-outline-warning btn-lg" href="comida/insertar">AGREGAR COMIDA</a>
 </div>
 {/if}
+<br>
+<div class="container">
+  <div class="row">
+      <div class="col"><img class="img-fluid" src="img/Rotify_comidas_1.png"></div>
+      <div class="col"><img class="img-fluid" src="img/Rotify_comidas_2.png"></div>
+      <div class="col"><img class="img-fluid" src="img/Rotify_comidas_2_2.png"></div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col"><img class="img-fluid" src="img/Rotify_comidas_3.png"></div>
+      <div class="col"><img class="img-fluid" src="img/Rotify_comidas_4.png"></div>
+      <div class="col"><img class="img-fluid" src="img/Rotify_comidas_5.png"></div>
+    </div>
+
+</div>
+<hr>
+
+
+
+
+
+
+
+
 
 </body>
 {include 'templates/footer.tpl'}

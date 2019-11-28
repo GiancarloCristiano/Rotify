@@ -28,7 +28,14 @@
 
   <div class="card-body" v-for="comentario in comentarios" v-if="comentarios">
     <p>{{comentario.comentario}}</p>
-    <h4>{{comentario.puntaje}}</h4>
+    <div v-if="comentario.puntaje">
+      <h5 v-if="comentario.puntaje == 1" class="text-warning">&#9733; &#9734; &#9734; &#9734; &#9734;</h5>
+      <h5 v-if="comentario.puntaje == 2" class="text-warning">&#9733; &#9733; &#9734; &#9734; &#9734;</h5>
+      <h5 v-if="comentario.puntaje == 3" class="text-warning">&#9733; &#9733; &#9733; &#9734; &#9734;</h5>
+      <h5 v-if="comentario.puntaje == 4" class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</h5>
+      <h5 v-if="comentario.puntaje == 5" class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</h5>
+      <h6>{{comentario.puntaje}}</h6>
+    </div>
     <small class="text-muted">Publicado por {{comentario.nombre_usuario}}. Fecha: {{comentario.fecha}}</small>
     <hr>
  

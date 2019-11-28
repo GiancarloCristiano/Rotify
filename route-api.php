@@ -21,7 +21,6 @@
     $router->addRoute("/comentario/:id_variedad", "POST", "comentariosApiController", "insertarComentario");
     $router->addRoute("/comentarios/:id_comentario/", "DELETE", "comentariosApiController", "borrarComentario");
 
-    //$router->addRoute("/comentarios/:id_variedad", "POST", "comentariosApiController", "insertarComentario");
     $router->addRoute("/comentarios/:id_variedad/puntajeprom/", "GET", "comentariosApiController", "getPromPuntaje");
 
 

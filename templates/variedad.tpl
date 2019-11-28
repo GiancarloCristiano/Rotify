@@ -1,5 +1,5 @@
 {include 'templates/header.tpl'}
-
+<hr>
 <div class="container">
   <h1 class="text-center">
     {$segundotitulo}
@@ -51,6 +51,7 @@
 <a class="btn btn-outline-warning btn-lg" href="variedad/insertar">AGREGAR VARIEDAD</a>
 </div>
 {/if}
+<hr>
 
   <!-- <script src="js/promedioPuntaje.js"></script>-->
 </body>
