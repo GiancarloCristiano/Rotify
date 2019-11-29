@@ -4,8 +4,8 @@
 
 <div class="card card-outline-secondary my-4" id="vue-template-comentarios">
   <div class="card-header">
-    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
-      <h4>Comentarios del Producto <span class="badge badge-pill badge-warning text-white">8</h4>
+    <div v-if="!comentarios.length==0" class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+      <h4>Comentarios del Producto <span class="badge badge-pill badge-warning text-white">{{comentarios.length}}</span></h4>
         <div class="btn-group-sm" role="group">
           <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle"
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ordenar por:
@@ -18,8 +18,10 @@
           </div>
         </div>
       </div>
+      <div v-else>
+        <h5 class="text-muted">No existen comentarios para este producto.</h5>
+      </div>
     </div>
-
  
 
   <div class="card-body" v-for="comentario in comentarios" v-if="comentarios">
@@ -47,11 +49,7 @@
       </div>
   </div>
 
-  <div class="card-body" v-else>
-    <p>Aún no existen comentarios para este producto</p>
-  </div>
-
-
+ 
     <div class="card-footer" v-if="loggedInUser">
       <div class="form-group">
         <label>Ingrese comentario</label>
