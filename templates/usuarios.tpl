@@ -1,5 +1,5 @@
+{if isset($smarty.session.USER) && $smarty.session.USER_ADMIN}
 {include 'templates/header.tpl'}
-{if isset($smarty.session.USER_ADMIN)}
 
 <div class="container">
   <h1 class="text-center">
@@ -38,5 +38,11 @@
 </table>
 
 </body>
-{/if}
 {include 'templates/footer.tpl'}
+
+
+{else}
+{include 'templates/home.tpl'}
+
+{/if}
+

@@ -1,6 +1,6 @@
-{include 'templates/header.tpl'}
+{if isset($smarty.session.USER) && $smarty.session.USER_ADMIN}
 
-{if isset($smarty.session.USER_ADMIN)}
+{include 'templates/header.tpl'}
 <form action="" method="POST" class="col-md-4 offset-md-4 mt-4" enctype= "multipart/form-data">
     <div class="form-group">
     <h2>AGREGAR VARIEDAD</h2>
@@ -28,5 +28,9 @@
 </form>
 
 </body>
-{if}
 {include 'templates/footer.tpl'}
+
+{else}
+{include 'templates/home.tpl'}
+
+{/if}

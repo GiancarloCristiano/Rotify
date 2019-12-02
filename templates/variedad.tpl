@@ -7,7 +7,7 @@
 </div>
 
 
-<table class="table table-striped">
+<table class="table table-striped  table-hover">
   <thead class="thead bg-warning text-white">
     <tr>
       <th scope="col">PLATO</th>
@@ -26,11 +26,16 @@
     <tr>
       <td scope="row">{$variedad->nombre_comida}</td>
       <td scope="row">{$variedad->nombre}</td>
-      <td scope="row"><img width=150px src="{$variedad->imagen}"></td>
+      <td scope="row "><img width=150px src="{$variedad->imagen}"></td>
       {* <td scope="row">{$promedioPuntaje} *}
       {* {include file='vue/promedioPuntaje.tpl'} *}
-      </td>
-      {if isset ($smarty.session.USER_ADMIN)}
+      
+      
+
+</td>
+
+
+      {if isset($smarty.session.USER) && $smarty.session.USER_ADMIN}
       <td scope="row">
         <a class="btn btn-warning text-white" href="variedad/editar/{$variedad->id_variedad}">EDITAR</a>
         <a class="btn btn-secondary" href="variedad/borrar/{$variedad->id_variedad}">X</a>
@@ -46,7 +51,7 @@
   </tbody>
 </table>
 
-{if isset($smarty.session.USER_NAME)}
+{if isset($smarty.session.USER) && $smarty.session.USER_ADMIN}
 <div class="text-center">
 <a class="btn btn-outline-warning btn-lg" href="variedad/insertar">AGREGAR VARIEDAD</a>
 </div>
