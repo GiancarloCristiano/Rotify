@@ -41,10 +41,7 @@ class ComidasControlador {
     public function getComidas(){
        
         $comidas = $this->comidasModel->getComidas(); //variable con el arreglo de comidas
-      //  var_dump ($comidas[1].nombre);
-       // echo $comidas[1].nombre;
-       //echo $comidas[1]->nombre;
-       //llamar a la  instancia de la vista y llamar a una metodo mostrar y pasarle como parametro la variable comidas que es un arreglo,
+        //llamar a la  instancia de la vista y llamar a una metodo mostrar y pasarle como parametro la variable comidas que es un arreglo,
        //la funcion mostrar despues de va a conectar con smarty para mostrar todas las comidas en un html 
        $titulo='COMIDAS';
        $this->comidasView->mostrarComidas($comidas,$titulo);
@@ -58,11 +55,8 @@ class ComidasControlador {
             header('Location: ' . COMIDA);
             
         }else{
-            echo '<script>alert("no se ha ingresado una categoría");
-            window.location.href="../addComida"</script>';
-            
-            // header('Location: ' . COMIDA );
-            
+            echo '<script>alert("No se ha ingresado una comida");
+            window.location.href=""</script>';            
         }   
     }
     
@@ -73,14 +67,13 @@ class ComidasControlador {
         $this->comidasModel->editarComida($id, $nombre);
         header('Location: ' . COMIDA );
         }else{  
-            echo '<script>alert("no se ha ingresado una categoría")</script>';
-            header('Location: ' . COMIDA );
+            echo '<script>alert("No se ha ingresado una comida");
+            window.location.href=""</script>';
         }
     }
     
     public function borrarComida($params = null) {
         $id = $params[':ID_COMIDA'];
-        echo $id . "jj";
         $this->comidasModel->borrarComida($id);
         header('Location: ' . COMIDA );
     }

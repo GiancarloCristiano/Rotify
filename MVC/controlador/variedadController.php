@@ -49,7 +49,7 @@ class variedadControlador {
         ) {
 
             $this->variedadModel->insertarVariedad($id_comida, $nombre, $ingredientes, $_FILES['imagen']);
-        }
+        
         // if ((!empty($nombre)) && (!empty($ingredientes))) {
 
         //     $this->variedadModel->insertarVariedad($id_comida, $nombre, $ingredientes, $_FILES['imagen']);
@@ -58,8 +58,11 @@ class variedadControlador {
 
         //     echo '<script>alert("no se ha ingresado una variedad")</script>';
             header('Location: ' . VARIEDAD );
-
+        }else{  
+            echo '<script>alert("Faltan completar datos")
+            window.location.href=""</script>';     
         }   
+    }   
     
     
     public function editarVariedad($params = null){
@@ -79,7 +82,8 @@ class variedadControlador {
             $this->variedadModel->editarVariedad($id_variedad,$id_comida, $nombre, $ingredientes);
              header('Location: ' . VARIEDAD );      
         }else{  
-            echo '<script>alert("no se ha ingresado una variedad")</script>';
+            echo '<script>alert("Faltan completar datos")
+            window.location.href=""</script>';     
         }
     }
 
@@ -108,12 +112,16 @@ class variedadControlador {
         public function getVariedad($params = null){
             $id_variedad = $params[':ID_VARIEDAD'];
             $variedad = $this->variedadModel->getVariedad($id_variedad);
-            
-            $promedioPuntajes = $this->variedadModel->getPromPuntajes($id_variedad);
-            $this->variedadView->mostrarDetalle($variedad, $promedioPuntajes);
-
-            //$this->variedadView->mostrarDetalle($variedad);
+            $this->variedadView->mostrarDetalle($variedad);
         }	
+
+        // public function getVariedad($params = null){
+        //     $id_variedad = $params[':ID_VARIEDAD'];
+        //     $variedad = $this->variedadModel->getVariedad($id_variedad);
+        //     $promedioPuntajes = $this->variedadModel->getPromPuntajes($id_variedad);
+        //     $this->variedadView->mostrarDetalle($variedad, $promedioPuntajes);
+        // }	
+
 
         public function getPromPuntajes($params = null){
             $id_variedad = $params[':id_variedad'];
